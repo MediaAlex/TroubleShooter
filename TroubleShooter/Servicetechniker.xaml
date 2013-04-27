@@ -1,0 +1,41 @@
+﻿<Window
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	x:Class="TroubleShooter.Servicetechniker"
+	x:Name="Page"
+	Title="Servicetechniker"
+	FlowDirection="LeftToRight"
+	Width="1254" Height="684"
+    WindowState="Maximized"
+    WindowStyle="None">
+
+	<Grid x:Name="LayoutRoot" Background="White">
+		<StackPanel HorizontalAlignment="Left" Margin="10,10,0,10" Width="379">
+			<Image x:Name="image" Height="656.5" Source="/TroubleShooter;component/Images/Comic-Mann2spaltig-333x617.jpg" RenderTransformOrigin="0.5,0.5" >
+				<Image.RenderTransform>
+					<TransformGroup>
+						<ScaleTransform ScaleY="1" ScaleX="-1"/>
+						<SkewTransform AngleY="0" AngleX="0"/>
+						<RotateTransform Angle="0"/>
+						<TranslateTransform/>
+					</TransformGroup>
+				</Image.RenderTransform>
+			</Image>
+		</StackPanel>
+		<StackPanel Height="241" Margin="394,10,10,0" VerticalAlignment="Top">
+			<TextBlock x:Name="textBlock" TextWrapping="Wrap" Text="TextBlock" Height="120.96" Margin="50,40,40,0" FontSize="26.667"/>
+		</StackPanel>
+		<StackPanel Margin="394,0,10,148" Background="#FFB5C1CE" Height="158.5" VerticalAlignment="Bottom" Orientation="Horizontal">
+            <ListBox Width="850">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock/>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+			
+		</StackPanel>
+        
+        <Button Name="but_weiter" Content="weiter" Margin="1052,575,81,48" Click="but_weiter_Click" />
+	</Grid>
+</Window>

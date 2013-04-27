@@ -1,0 +1,65 @@
+﻿<Window
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:ed="http://schemas.microsoft.com/expression/2010/drawing"
+	x:Class="TroubleShooter.Profil"
+	Title="Profil"
+	FlowDirection="LeftToRight"
+	Width="1254" Height="684"
+	WindowState="Maximized"
+    WindowStyle="None">
+
+	<Grid x:Name="LayoutRoot" Background="White">
+		<StackPanel Height="73" VerticalAlignment="Top" HorizontalAlignment="Left" Width="1254" Orientation="Horizontal">
+			<StackPanel.Background>
+				<RadialGradientBrush>
+					<GradientStop Color="#FF4878AD" Offset="1"/>
+					<GradientStop Color="#FF6395CC"/>
+				</RadialGradientBrush>
+			</StackPanel.Background>
+			<Rectangle Fill="#FFF4F4F5" Margin="10,10,0,10" Width="40.5"/>
+			<Label Content="TroubleShooter - Profil" Height="59" HorizontalAlignment="Left" x:Name="lab_titel" Width="1013.5" 
+				FontSize="36" Foreground="#FF1A1A1A" HorizontalContentAlignment="Center" Margin="0,7"/>
+			<Ellipse Fill="#FFF4F4F5" Width="53.613" Margin="10,10,20,10"/>
+			<Ellipse Fill="#FFF4F4F5" Width="53.613" Margin="10,10,20,10"/>
+		</StackPanel>
+		<Button Content="X" Height="30" HorizontalAlignment="Right" x:Name="but_close" VerticalAlignment="Top" Width="35" FontSize="16"/>
+		<StackPanel HorizontalAlignment="Left" Margin="55.5,117,0,10" Width="269.5">
+			<Image x:Name="image" Height="200"/>
+		</StackPanel>
+		<StackPanel Margin="343.5,117,363.5,10">
+            <TextBlock x:Name="tBl_name" FontSize="16" Text="tBl_name" Margin="0,10,20,0"/>
+            <TextBlock x:Name="tBl_geb"  FontSize="16" Text="tBl_geb" Margin="0,0,20,10"/>
+            <TextBlock x:Name="tBl_gruppe"  FontSize="16" Text="tBl_gruppe" Margin="0,10,20,0"/>
+            <TextBlock x:Name="tBl_lehrjahr"  FontSize="16" Text="tBl_lehrjahr" Margin="0,0,20,0"/>
+            <TextBlock x:Name="tBl_werkstatt"  FontSize="16" Text="tBl_werkstatt" Margin="0,0,20,0"/>
+			<StackPanel Height="58" Background="Yellow" Margin="0,30,0,20">
+                <TextBlock x:Name="tBl_fortschritt" TextWrapping="Wrap" Text="tBl_fortschritt" FontSize="26.667" TextAlignment="Center" 
+                           Height="57.47"/>
+			</StackPanel>
+		</StackPanel>
+		<StackPanel HorizontalAlignment="Right" Margin="0,117,38,10" Width="320.5">
+			<TextBlock x:Name="textBlock6" TextWrapping="Wrap" FontSize="40"><Run Language="de-de" Text="Gruppenwertung"/></TextBlock>
+            <StackPanel Height="41.5" Orientation="Horizontal" Margin="0,10,0,0">
+                <Rectangle Fill="Red" Width="50"/>
+				<TextBlock Text="Anfänger" FontSize="20" Height="30" />
+                <TextBlock Text="1" FontSize="20" Margin="90,0,0,0" Height="26" />
+                <TextBlock Text="Spieler" FontSize="20" Margin="10,0,0,0" Height="30" />
+			</StackPanel>
+            <StackPanel Height="41.5" Orientation="Horizontal" Margin="0,20,0,0">
+                <Rectangle Fill="Yellow" Width="50"/>
+                <TextBlock Text="Fortgeschritten" FontSize="20"/>
+                <TextBlock Text="1" FontSize="20" Margin="37,0,0,0"/>
+                <TextBlock Text="Spieler" FontSize="20" Margin="10,0,0,0"/>
+			</StackPanel>
+            <StackPanel Height="41.5" Orientation="Horizontal" Margin="0,20,0,0">
+                <Rectangle Fill="Green" Width="50"/>
+                <TextBlock Text="Experte" FontSize="20"/>
+                <TextBlock Text="1" FontSize="20" Margin="106,0,0,0"/>
+                <TextBlock Text="Spieler" FontSize="20" Margin="10,0,0,0"/>
+			</StackPanel>
+            <Button x:Name="button" Height="40" Content="Letztes Spiel Fortsetzen" Margin="0,240,0,0"/>
+            <Button x:Name="button1" Height="40" Content="Neues Spiel Starten" Margin="0,9,0,0" Click="button1_Click" />
+		</StackPanel>
+	</Grid>
+</Window>

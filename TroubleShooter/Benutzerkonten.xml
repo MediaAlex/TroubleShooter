@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Lehrkraefte>
+  <Ausbilder>
+    <id>001</id>
+    <benutzername>Gruber</benutzername>
+    <passwort>hanf</passwort>
+  </Ausbilder>
+  <Ausbilder>
+    <id>002</id>
+    <benutzername>Meissner</benutzername>
+    <passwort>coca</passwort>
+  </Ausbilder>
+  <Ausbilder>
+    <id>003</id>
+    <benutzername>Schlag</benutzername>
+    <passwort>marju</passwort>
+  </Ausbilder>
+</Lehrkraefte>

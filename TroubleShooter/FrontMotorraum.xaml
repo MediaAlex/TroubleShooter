@@ -1,0 +1,73 @@
+﻿<Window
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d"
+	x:Class="TroubleShooter.FrontMotorraum"
+	x:Name="Page"
+	FlowDirection="LeftToRight"
+	Width="1254" Height="684"
+	Title="FrontMotorraum"        
+    WindowState="Maximized"
+    WindowStyle="None">
+
+	<Grid x:Name="LayoutRoot" Background="White">
+        <Grid Margin="161,0,0,0" HorizontalAlignment="Left" Width="860" Height="645" VerticalAlignment="Bottom">
+            <Image x:Name="image" Margin="0,-130,0,-140" Source="ES_Kfz_Motorraum.png"/>
+            <Rectangle Height="171" HorizontalAlignment="Right" Margin="0,0,55,144" Name="rec_bat" Stroke="Black" 
+                       VerticalAlignment="Bottom" Width="173" MouseLeftButtonUp="rec_batEinb_MouseLeftButtonUp" Opacity="0" Fill="Black" />
+            <Image x:Name="img_batt" HorizontalAlignment="Right" Margin="0,330,0,0" Width="277" Source="Batterie.png" 
+                   Height="276" VerticalAlignment="Top" MouseLeftButtonUp="img_batt_menu" />
+            <Image x:Name="img_kab" HorizontalAlignment="Right" Margin="0,293,-2,70" Width="278.812" Source="BatterieKabel.png" 
+                   MouseLeftButtonUp="img_kab_menü" />
+            <Rectangle Height="142" HorizontalAlignment="Left" Margin="2,1,0,0" Name="rec_zurFahrzFront" 
+                       VerticalAlignment="Top" Width="857" MouseLeftButtonUp="ZurFahrzeugFront" Fill="Black" Opacity="0" />
+
+            <!--Aktionsmenüs ***** Anfang **********-->
+            <StackPanel Name="stPan_menuKab" Margin="0,0,230,253" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="141" 
+                    Visibility="Collapsed" MouseLeave="visibCol_MouseLeave">
+                <StackPanel.Background>
+                    <SolidColorBrush Color="#FF2054A9" Opacity="0.85"/>
+                </StackPanel.Background>
+                <TextBlock Name="tBl_batSpPr" Text="Batteriespannung prüfen" Margin="5,5,5,0" FontWeight="Bold" 
+                       MouseLeftButtonUp="tBl_batSpanPr_MouseLeftButtonUp"/>
+                <TextBlock Name="tBl_batKabAbkl" Text="Batteriekabel abklemmen" Margin="5,5,5,0" FontWeight="Bold" 
+                       MouseLeftButtonUp="tBl_batKabAbkl_MouseLeftButtonUp"/>
+            </StackPanel>
+            <StackPanel Name="stPan_menuBatEing" Margin="0,0,230,253" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="141" 
+                    Visibility="Collapsed" MouseLeave="visibCol_MouseLeave">
+                <StackPanel.Background>
+                    <SolidColorBrush Color="#FF2054A9" Opacity="0.85"/>
+                </StackPanel.Background>
+                <TextBlock Name="tBl_batAusb" Text="Batterie Ausbauen" Margin="5,5,5,0" FontWeight="Bold" 
+                       MouseLeftButtonUp="tBl_batAusb_MouseLeftButtonUp"/>
+                <TextBlock Name="tBl_batKabAnkl" Text="Batteriekabel anklemmen" Margin="5,5,5,0" FontWeight="Bold" 
+                       MouseLeftButtonUp="tBl_batKabAnkl_MouseLeftButtonUp"/>
+            </StackPanel>
+            <StackPanel Name="stPan_menuBatAusg" Margin="0,0,230,253" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="141" 
+                    Visibility="Collapsed" MouseLeave="visibCol_MouseLeave">
+                <StackPanel.Background>
+                    <SolidColorBrush Color="#FF2054A9" Opacity="0.85"/>
+                </StackPanel.Background>
+                <TextBlock Name="tBl_batEinb" Text="Batterie Einbauen" Margin="5,5,5,0" FontWeight="Bold" 
+                       MouseLeftButtonUp="tBl_batEinb_MouseLeftButtonUp"/>
+            </StackPanel>
+        </Grid>
+        
+        <!-- Rechte Menüleiste-->
+        <Rectangle x:Name="rec_menue" Stroke="Black" MouseEnter="stPan_menue_MouseEnter" Height="314" 
+                   VerticalAlignment="Top" HorizontalAlignment="Right" Width="21" Margin="0"/>
+        <StackPanel HorizontalAlignment="Right" Width="100" Visibility="Collapsed"
+                    x:Name="stPan_menue" MouseLeave="stPan_menue_MouseLeave" Height="399" VerticalAlignment="Top">
+            <StackPanel.Background>
+                <SolidColorBrush Color="#FFE2E2E2" Opacity="0.4"/>
+            </StackPanel.Background>
+            <StackPanel.Effect>
+                <DropShadowEffect Direction="225" ShadowDepth="1" BlurRadius="40"/>
+            </StackPanel.Effect>
+            <Image Source="/TroubleShooter;component/Images/info-01.jpg" Opacity="0.75" />
+            <Image x:Name="ersatzteil_logo_gr_gif" Height="93" Source="ersatzteil-logo-gr.gif" Stretch="Fill" Opacity="0.75"/>
+            <Image x:Name="menschen_biz_mannlich_smile_clip_art_425060_jpg" Height="132.628" Source="menschen-biz-mannlich-smile-clip-art_425060.jpg" Stretch="Fill" Opacity="0.75"/>
+            <Image x:Name="E_L__Auftrag_png" Height="72.393" Source="E&amp;L_ Auftrag.png" Stretch="Fill" Opacity="0.75"/>
+        </StackPanel>
+    </Grid>
+</Window>

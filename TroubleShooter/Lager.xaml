@@ -1,0 +1,14 @@
+﻿<Page
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	x:Class="TroubleShooter.Lager"
+	x:Name="Page"
+	WindowTitle="Page"
+	FlowDirection="LeftToRight"
+	Width="1254" Height="684"
+	WindowWidth="640" WindowHeight="480">
+
+	<Grid x:Name="LayoutRoot" Background="White">
+		<StackPanel HorizontalAlignment="Right" Margin="0,10,0,260.5" Width="100" Background="#FFDAB6B6"/>
+	</Grid>
+</Page>

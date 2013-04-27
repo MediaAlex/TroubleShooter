@@ -1,0 +1,39 @@
+﻿<Window
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" 
+    x:Class="TroubleShooter.SeiteFahrzeug"
+    Title="SeiteFahrzeug" Height="700" Width="1270"
+    WindowState="Maximized"
+    WindowStyle="None">
+
+	<Grid x:Name="LayoutRoot" Background="White">
+        <Rectangle Name="rec_menue" Stroke="Black" Margin="1154,0,0,287.5" MouseEnter="stPan_menue_MouseEnter"/>
+		<StackPanel HorizontalAlignment="Right" Width="100" Visibility="Visible"
+                    Name="stPan_menue" MouseLeave="stPan_menue_MouseLeave" Height="400" VerticalAlignment="Top">
+			<StackPanel.Background>
+				<SolidColorBrush Color="#FFE2E2E2" Opacity="0.4"/>
+			</StackPanel.Background>
+			<StackPanel.Effect>
+				<DropShadowEffect Direction="225" ShadowDepth="1" BlurRadius="40"/>
+			</StackPanel.Effect>
+            <Image Source="/TroubleShooter;component/Images/info-01.jpg" Opacity="0.75" />
+            <Image x:Name="ersatzteil_logo_gr_gif" Height="93" Source="ersatzteil-logo-gr.gif" Stretch="Fill" Opacity="0.75"/>
+            <Image x:Name="menschen_biz_mannlich_smile_clip_art_425060_jpg" Height="132.628" Source="menschen-biz-mannlich-smile-clip-art_425060.jpg" Stretch="Fill" Opacity="0.75"/>
+            <Image x:Name="E_L__Auftrag_png" Height="72.393" Source="E&amp;L_ Auftrag.png" Stretch="Fill" Opacity="0.75"/>
+        </StackPanel>
+		<Image x:Name="image" Margin="113,104,0,0" Source="/TroubleShooter;component/Images/EL_Auto.png" Height="446" VerticalAlignment="Top" HorizontalAlignment="Left" Width="979" />
+        <Ellipse Height="24" HorizontalAlignment="Left" Margin="625,254,0,0" Name="ellipse1" VerticalAlignment="Top" Width="36" 
+                 ToolTip="Ins Fahrzeug einsteigen" MouseLeftButtonUp="ellipse1_MouseLeftButtonUp" >
+        	<Ellipse.Fill>
+        		<SolidColorBrush Color="Black" Opacity="0.1"/>
+        	</Ellipse.Fill>
+        </Ellipse>
+        <Rectangle Height="219" HorizontalAlignment="Left" Margin="113,182,0,0" Name="rec_motorraum" VerticalAlignment="Top" Width="285" 
+                   ToolTip="Fahrzeugfront und Motorraum" MouseLeftButtonUp="rec_motorraum_MouseLeftButtonUp" >
+        	<Rectangle.Fill>
+        		<SolidColorBrush Color="Black" Opacity="0.1"/>
+        	</Rectangle.Fill>
+        </Rectangle>
+    </Grid>
+</Window>
