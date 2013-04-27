@@ -58,6 +58,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ArbeitsschritteBlinkerLi.cs" />
     <Compile Include="Autoteile.cs" />
     <Compile Include="FahrzeugFahrerraum.xaml.cs">
       <DependentUpon>FahrzeugFahrerraum.xaml</DependentUpon>
@@ -79,6 +80,7 @@
       <DependentUpon>Login.xaml</DependentUpon>
     </Compile>
     <Compile Include="Arbeitsschritte.cs" />
+    <Compile Include="Protokoll.cs" />
     <Compile Include="SeiteFahrzeug.xaml.cs">
       <DependentUpon>SeiteFahrzeug.xaml</DependentUpon>
     </Compile>

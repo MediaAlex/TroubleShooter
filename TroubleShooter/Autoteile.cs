@@ -5,12 +5,12 @@ using System.Text;
 
 namespace TroubleShooter
 {
-    class Autoteile
+    public class Autoteile
     {
         public string bezeichnung { get; set; }
         public string bezID { get; set; }
 
-        public static List<Autoteile> alleTeile()
+        public List<Autoteile> alleTeile()
         {
             List<Autoteile> teileList = new List<Autoteile>();
             teileList.Add(new Autoteile { bezeichnung = "Batterie", bezID = "bat" });
