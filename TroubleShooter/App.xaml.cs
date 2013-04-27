@@ -12,5 +12,8 @@ namespace TroubleShooter
     /// </summary>
     public partial class App : Application
     {
+        public static List<Arbeitsschritte> _arbSchritteBliLi = new List<Arbeitsschritte>();
+        
+        Situation situation = new Situation();
     }
 }

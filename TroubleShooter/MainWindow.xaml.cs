@@ -44,7 +44,17 @@ namespace TroubleShooter
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            popU_login.IsOpen = true;
+            _setArbeitsschritte();
+        }
+
+        private void _setArbeitsschritte()
+        {
+            _blinkerLinks();
+        }
+
+        private void _blinkerLinks()
+        {
+            Arbeitsschritte alleArbeitsschritte = new Arbeitsschritte();
         }
 
         Ausbilder ausbilder = new Ausbilder();

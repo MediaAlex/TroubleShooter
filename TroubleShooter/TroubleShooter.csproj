@@ -78,7 +78,7 @@
     <Compile Include="Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Prüfen.cs" />
+    <Compile Include="Arbeitsschritte.cs" />
     <Compile Include="SeiteFahrzeug.xaml.cs">
       <DependentUpon>SeiteFahrzeug.xaml</DependentUpon>
     </Compile>
