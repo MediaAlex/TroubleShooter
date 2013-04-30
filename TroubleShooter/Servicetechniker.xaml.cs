@@ -42,22 +42,47 @@ namespace TroubleShooter
 
             Autoteile alleAutoteile = new Autoteile();
             Situation aktAuftrag = new Situation();
-            ArbeitsschritteBlinkerLi asBlLi = new ArbeitsschritteBlinkerLi();
-
-            _ArbeitsschritteFestlegen();
 
             App._teileBli.Add(alleAutoteile);
-
             aktAuftrag.defekt = App._teileBli[0].alleTeile()[rndIndex].bezeichnung;
-            aktAuftrag.textAuftrag = "Blinker links ohne Funktion.";
-            aktAuftrag.prüfFolge = App._arbSchritteBliLi;
+            aktAuftrag.defektID = App._teileBli[0].alleTeile()[rndIndex].bezID;
+
+            _ArbeitsschritteFestlegen(aktAuftrag.defektID);
+
+            aktAuftrag.textAuftrag = "";
+            aktAuftrag.prüfFolge = App._arbSchritteOptimal;
             App._situation.Add(aktAuftrag);
         }
 
-        private void _ArbeitsschritteFestlegen()
+        private void _ArbeitsschritteFestlegen(string defekt)
         {
-            ArbeitsschritteBlinkerLi alleSchritte = new ArbeitsschritteBlinkerLi();
-            App._arbSchritteBliLi = alleSchritte._ASBlLi();
+            ArbSchrBlinksysOptimal alleSchritte = new ArbSchrBlinksysOptimal();
+            switch (defekt)
+            {
+                case "bat":
+                    App._arbSchritteOptimal = alleSchritte._defBat();
+                    break;
+
+                case "sichBlink":
+                    App._arbSchritteOptimal = alleSchritte._defSich();
+                    break;
+
+                case "blinkRel":
+                    App._arbSchritteOptimal = alleSchritte._defRel();
+                    break;
+
+                case "blinkSch":
+                    App._arbSchritteOptimal = alleSchritte._defBlSch();
+                    break;
+
+                case "blinkglühlLi":
+                    App._arbSchritteOptimal = alleSchritte._defGlLampLi();
+                    break;
+
+                case "blinkglühlRe":
+                    App._arbSchritteOptimal = alleSchritte._defGlLampRe();
+                    break;
+            }
         }
 	}
 }

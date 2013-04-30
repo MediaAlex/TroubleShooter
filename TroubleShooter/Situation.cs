@@ -9,6 +9,7 @@ namespace TroubleShooter
     {
         public string textAuftrag { get; set; }
         public string defekt { get; set; }
+        public string defektID { get; set; }
         public List<Arbeitsschritte> prüfFolge { get; set; }
     }
 }

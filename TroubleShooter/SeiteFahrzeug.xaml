@@ -5,7 +5,7 @@
     x:Class="TroubleShooter.SeiteFahrzeug"
     Title="SeiteFahrzeug" Height="700" Width="1270"
     WindowState="Maximized"
-    WindowStyle="None">
+    WindowStyle="None" Loaded="Window_Loaded">
 
 	<Grid x:Name="LayoutRoot" Background="White">
         <Rectangle Name="rec_menue" Stroke="Black" Margin="1154,0,0,287.5" MouseEnter="stPan_menue_MouseEnter"/>

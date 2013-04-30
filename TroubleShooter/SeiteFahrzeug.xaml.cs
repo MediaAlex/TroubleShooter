@@ -18,10 +18,12 @@ namespace TroubleShooter
 		public SeiteFahrzeug()
 		{
 			InitializeComponent();
-
-			// Fügen Sie Code, der bei der Objekterstellung erforderlich ist, unter diesem Punkt ein.
 		}
-        //NavigationService navi;
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+
+        }
 
         private void stPan_menue_MouseEnter(object sender, MouseEventArgs e)
         {
