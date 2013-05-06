@@ -90,7 +90,7 @@
                 <TextBlock Name="tBl_lenkrAusb" Text="Lenkrad ausbauen" Margin="5,5,5,0" FontWeight="Bold"
                            MouseLeftButtonUp="tBl_lenkrAusb_MouseLeftButtonUp"/>
                 <TextBlock Name="tBl_lenkrHupeEinb" Text="Hupe einbauen" Margin="5,5,5,0" FontWeight="Bold"
-                           MouseLeftButtonUp="tBl_lenkrHupEinb_MouseLeftButtonUp"/>
+                           MouseLeftButtonUp="tBl_hupEinb_MouseLeftButtonUp"/>
             </StackPanel>
 
             <StackPanel Name="stPan_menuBlEinb" Margin="520,262,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="141" Visibility="Collapsed" 

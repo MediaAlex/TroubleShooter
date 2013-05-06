@@ -60,26 +60,30 @@ namespace TroubleShooter
         //Aktionen
         private void tBl_batSpanPr_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-
+            App.prot.Add(new Protokoll { prüfschritt = App.alleAS[12].prüfschritt, prüfschrittID = App.alleAS[12].prüfschrittID });
         }
 
         private void tBl_batKabAbkl_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
+            App.prot.Add(new Protokoll { prüfschritt = App.alleAS[13].prüfschritt, prüfschrittID = App.alleAS[13].prüfschrittID });
             img_kab.Visibility = Visibility.Collapsed;
         }
 
         private void tBl_batAusb_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
+            App.prot.Add(new Protokoll { prüfschritt = App.alleAS[15].prüfschritt, prüfschrittID = App.alleAS[15].prüfschrittID });
             img_batt.Visibility = Visibility.Collapsed;
         }
 
         private void tBl_batKabAnkl_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
+            App.prot.Add(new Protokoll { prüfschritt = App.alleAS[14].prüfschritt, prüfschrittID = App.alleAS[14].prüfschrittID });
             img_kab.Visibility = Visibility.Visible;
         }
 
         private void tBl_batEinb_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
+            App.prot.Add(new Protokoll { prüfschritt = App.alleAS[16].prüfschritt, prüfschrittID = App.alleAS[16].prüfschrittID });
             img_batt.Visibility = Visibility.Visible;
         }
 	}

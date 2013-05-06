@@ -5,7 +5,11 @@ using System.Text;
 
 namespace TroubleShooter
 {
-    public class Protokoll : IArbeitsschritte
+    public class Regel : IRegel
     {
+        public Regel()
+        {
+            voraussetzungen = new List<IRegel>();
+        }
     }
 }

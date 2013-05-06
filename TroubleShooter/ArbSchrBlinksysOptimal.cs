@@ -9,10 +9,10 @@ namespace TroubleShooter
     
     public class ArbSchrBlinksysOptimal
     {
-        public List<Arbeitsschritte> _defBlSch()
+        public List<IArbeitsschritte> _defBlSch()
         {//0,6,8,10,17,22,23,33,30,36,39,41,42,43,44,06,08,40,37
             Arbeitsschritte schritt = new Arbeitsschritte();
-            List<Arbeitsschritte> alle = new List<Arbeitsschritte>();
+            List<IArbeitsschritte> alle = new List<IArbeitsschritte>();
             alle.Add(schritt.zuPrüfen()[0]);
             alle.Add(schritt.zuPrüfen()[6]);
             alle.Add(schritt.zuPrüfen()[8]);
@@ -36,10 +36,10 @@ namespace TroubleShooter
             return alle;
         }
 
-        public List<Arbeitsschritte> _defBat()
+        public List<IArbeitsschritte> _defBat()
         {//0,6,8,10,17,22,23,33,30,36,39,41,42,43,44,06,08,40,37
             Arbeitsschritte schritt = new Arbeitsschritte();
-            List<Arbeitsschritte> alle = new List<Arbeitsschritte>();
+            List<IArbeitsschritte> alle = new List<IArbeitsschritte>();
             alle.Add(schritt.zuPrüfen()[0]);
             alle.Add(schritt.zuPrüfen()[8]);
             alle.Add(schritt.zuPrüfen()[6]);
@@ -62,10 +62,10 @@ namespace TroubleShooter
 
             return alle;
         }
-        public List<Arbeitsschritte> _defSich()
+        public List<IArbeitsschritte> _defSich()
         {//0,6,8,10,17,22,23,33,30,36,39,41,42,43,44,06,08,40,37
             Arbeitsschritte schritt = new Arbeitsschritte();
-            List<Arbeitsschritte> alle = new List<Arbeitsschritte>();
+            List<IArbeitsschritte> alle = new List<IArbeitsschritte>();
             alle.Add(schritt.zuPrüfen()[0]);
             alle.Add(schritt.zuPrüfen()[8]);
             alle.Add(schritt.zuPrüfen()[6]);
@@ -88,10 +88,10 @@ namespace TroubleShooter
 
             return alle;
         }
-        public List<Arbeitsschritte> _defRel()
+        public List<IArbeitsschritte> _defRel()
         {//0,6,8,10,17,22,23,33,30,36,39,41,42,43,44,06,08,40,37
             Arbeitsschritte schritt = new Arbeitsschritte();
-            List<Arbeitsschritte> alle = new List<Arbeitsschritte>();
+            List<IArbeitsschritte> alle = new List<IArbeitsschritte>();
             alle.Add(schritt.zuPrüfen()[0]);
             alle.Add(schritt.zuPrüfen()[8]);
             alle.Add(schritt.zuPrüfen()[6]);
@@ -114,10 +114,10 @@ namespace TroubleShooter
 
             return alle;
         }
-        public List<Arbeitsschritte> _defGlLampRe()
+        public List<IArbeitsschritte> _defGlLampRe()
         {//0,6,8,10,17,22,23,33,30,36,39,41,42,43,44,06,08,40,37
             Arbeitsschritte schritt = new Arbeitsschritte();
-            List<Arbeitsschritte> alle = new List<Arbeitsschritte>();
+            List<IArbeitsschritte> alle = new List<IArbeitsschritte>();
             alle.Add(schritt.zuPrüfen()[0]);
             alle.Add(schritt.zuPrüfen()[8]);
             alle.Add(schritt.zuPrüfen()[6]);
@@ -140,10 +140,10 @@ namespace TroubleShooter
 
             return alle;
         }
-        public List<Arbeitsschritte> _defGlLampLi()
+        public List<IArbeitsschritte> _defGlLampLi()
         {//0,6,8,10,17,22,23,33,30,36,39,41,42,43,44,06,08,40,37
             Arbeitsschritte schritt = new Arbeitsschritte();
-            List<Arbeitsschritte> alle = new List<Arbeitsschritte>();
+            List<IArbeitsschritte> alle = new List<IArbeitsschritte>();
             alle.Add(schritt.zuPrüfen()[0]);
             alle.Add(schritt.zuPrüfen()[8]);
             alle.Add(schritt.zuPrüfen()[6]);

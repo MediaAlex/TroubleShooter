@@ -13,12 +13,22 @@ namespace TroubleShooter
     /// </summary>
     public partial class App : Application
     {
-        public static List<Arbeitsschritte> _arbSchritteOptimal = new List<Arbeitsschritte>();
+        //Defekt, Arbeitsschritte, Auftrrag, Protokoll
+        public static List<IArbeitsschritte> _arbSchritteOptimal = new List<IArbeitsschritte>();
         public static ObservableCollection<Autoteile> _teileBli = new ObservableCollection<Autoteile>();
         public static ObservableCollection<Situation> _situation = new ObservableCollection<Situation>();
         public static List<Protokoll> prot = new List<Protokoll>();
-        //public 
+        public static List<Arbeitsschritte> alleAS = new List<Arbeitsschritte>();
+
+        //Inferenzmaschine
+        public static List<String> _zutaten = new List<string>();
+        public static List<string> _geraete = new List<string>();
+        public static List<Fakt> _fakten = new List<Fakt>();
+        public static List<IRegel> _ziele = new List<IRegel>();
         
-        Situation situation = new Situation();
+        //Start der Anwendung
+        public void Application_Startup(object sender, StartupEventArgs e)
+        {
+        }
     }
 }

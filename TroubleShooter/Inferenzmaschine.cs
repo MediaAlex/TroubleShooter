@@ -5,7 +5,11 @@ using System.Text;
 
 namespace TroubleShooter
 {
-    public class Protokoll : IArbeitsschritte
+    class Inferenzmaschine
     {
+        public string checkBackwards(Regel r)
+        {
+            return null;
+        }
     }
 }

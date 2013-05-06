@@ -34,5 +34,16 @@ namespace TroubleShooter
         {
             
         }
+
+        private void but_weiter_Click(object sender, RoutedEventArgs e)
+        {
+            Profil p = new Profil();
+            p.ShowDialog();
+        }
+
+        private void but_gruppWahl_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+
+        }
     }
 }

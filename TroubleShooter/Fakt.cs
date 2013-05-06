@@ -5,7 +5,8 @@ using System.Text;
 
 namespace TroubleShooter
 {
-    public class Protokoll : IArbeitsschritte
+    public class Fakt : IRegel
     {
+        
     }
 }

@@ -17,7 +17,7 @@
 			<StackPanel.Effect>
 				<DropShadowEffect Direction="225" ShadowDepth="1" BlurRadius="40"/>
 			</StackPanel.Effect>
-            <Image Source="/TroubleShooter;component/Images/info-01.jpg" Opacity="0.75" />
+            <Image Source="/TroubleShooter;component/Images/info-01.jpg" Opacity="0.75" MouseLeftButtonUp="Image_MouseLeftButtonUp" />
             <Image x:Name="ersatzteil_logo_gr_gif" Height="93" Source="ersatzteil-logo-gr.gif" Stretch="Fill" Opacity="0.75"/>
             <Image x:Name="menschen_biz_mannlich_smile_clip_art_425060_jpg" Height="132.628" Source="menschen-biz-mannlich-smile-clip-art_425060.jpg" Stretch="Fill" Opacity="0.75"/>
             <Image x:Name="E_L__Auftrag_png" Height="72.393" Source="E&amp;L_ Auftrag.png" Stretch="Fill" Opacity="0.75"/>

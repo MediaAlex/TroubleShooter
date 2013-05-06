@@ -38,20 +38,26 @@ namespace TroubleShooter
         private void _Auftrag()
         {
             Random rnd = new Random();
-            int rndIndex = rnd.Next(0, 6);
 
             Autoteile alleAutoteile = new Autoteile();
             Situation aktAuftrag = new Situation();
+            //App._ziele.Add(blinker);
+            //App._ziele.Add(blinkerRe);
+            //App._ziele.Add(blinkerLi);
 
+            //aktAuftrag.textAuftrag = App._ziele[rnd.Next(0, 3)].bezeichnung + " funktioniert nicht.";
+
+            int rndNr = rnd.Next(0, 6);
             App._teileBli.Add(alleAutoteile);
-            aktAuftrag.defekt = App._teileBli[0].alleTeile()[rndIndex].bezeichnung;
-            aktAuftrag.defektID = App._teileBli[0].alleTeile()[rndIndex].bezID;
+            aktAuftrag.defekt = App._teileBli[0].alleTeile()[rndNr].bezeichnung;
+            aktAuftrag.defektID = App._teileBli[0].alleTeile()[rndNr].bezID;
 
             _ArbeitsschritteFestlegen(aktAuftrag.defektID);
 
-            aktAuftrag.textAuftrag = "";
+            aktAuftrag.textAuftrag = "Blinker funktioniert nicht";
             aktAuftrag.prüfFolge = App._arbSchritteOptimal;
             App._situation.Add(aktAuftrag);
+
         }
 
         private void _ArbeitsschritteFestlegen(string defekt)

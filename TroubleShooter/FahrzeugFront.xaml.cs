@@ -35,6 +35,7 @@ namespace TroubleShooter
 
         private void ZumMotorraum(object sender, MouseButtonEventArgs e)
         {
+            App.prot.Add(new Protokoll { prüfschritt = App.alleAS[2].prüfschritt, prüfschrittID = App.alleAS[2].prüfschrittID });
             FrontMotorraum fM = new FrontMotorraum();
             fM.ShowDialog();
         }
@@ -42,6 +43,7 @@ namespace TroubleShooter
         //Aktionen -------- Anfang -----------
         private void tBl_blLiAusb_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
+            App.prot.Add(new Protokoll { prüfschritt = App.alleAS[28].prüfschritt, prüfschrittID = App.alleAS[28].prüfschrittID });
             img_blLiDran.Visibility = Visibility.Collapsed;
             rec_blLiDrMenü.Visibility = Visibility.Collapsed;
             img_blLiRaus.Visibility = Visibility.Visible;
@@ -50,7 +52,7 @@ namespace TroubleShooter
 
         private void tBl_blLiGlLaOK_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-
+            App.prot.Add(new Protokoll { prüfschritt = App.alleAS[33].prüfschritt, prüfschrittID = App.alleAS[33].prüfschrittID });
         }
 
         private void tBl_blLiSpPr_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
@@ -60,16 +62,17 @@ namespace TroubleShooter
 
         private void tBl_blLiGlLaAusb_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-
+            App.prot.Add(new Protokoll { prüfschritt = App.alleAS[34].prüfschritt, prüfschrittID = App.alleAS[34].prüfschrittID });
         }
 
         private void tBl_blLiGlLaEinb_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-
+            App.prot.Add(new Protokoll { prüfschritt = App.alleAS[35].prüfschritt, prüfschrittID = App.alleAS[35].prüfschrittID });
         }
 
         private void tBl_blLiBlEinb_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
+            App.prot.Add(new Protokoll { prüfschritt = App.alleAS[29].prüfschritt, prüfschrittID = App.alleAS[29].prüfschrittID });
             img_blLiRaus.Visibility = Visibility.Collapsed;
             rec_blLiRaMenü.Visibility = Visibility.Collapsed;
             img_blLiDran.Visibility = Visibility.Visible;
@@ -78,6 +81,7 @@ namespace TroubleShooter
 
         private void tBl_blReAusb_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
+            App.prot.Add(new Protokoll { prüfschritt = App.alleAS[26].prüfschritt, prüfschrittID = App.alleAS[26].prüfschrittID });
             img_blReRaus.Visibility = Visibility.Visible;
             rec_blReRaMenü.Visibility = Visibility.Visible;
             img_blReDran.Visibility = Visibility.Collapsed;
@@ -86,7 +90,7 @@ namespace TroubleShooter
 
         private void tBl_blReGlLaOK_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-
+            App.prot.Add(new Protokoll { prüfschritt = App.alleAS[30].prüfschritt, prüfschrittID = App.alleAS[30].prüfschrittID });
         }
 
         private void tBl_blReSpPr_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
@@ -96,16 +100,17 @@ namespace TroubleShooter
 
         private void tBl_blReGlLaAusb_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-
+            App.prot.Add(new Protokoll { prüfschritt = App.alleAS[31].prüfschritt, prüfschrittID = App.alleAS[31].prüfschrittID });
         }
 
         private void tBl_blReGlLaEinb_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-
+            App.prot.Add(new Protokoll { prüfschritt = App.alleAS[32].prüfschritt, prüfschrittID = App.alleAS[32].prüfschrittID });
         }
 
         private void tBl_blReBlEinb_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
+            App.prot.Add(new Protokoll { prüfschritt = App.alleAS[27].prüfschritt, prüfschrittID = App.alleAS[27].prüfschrittID });
             img_blReRaus.Visibility = Visibility.Collapsed;
             rec_blReRaMenü.Visibility = Visibility.Collapsed;
             img_blReDran.Visibility = Visibility.Visible;
