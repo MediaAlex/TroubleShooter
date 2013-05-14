@@ -5,12 +5,12 @@ using System.Text;
 
 namespace TroubleShooter
 {
-    public class Arbeitsschritte : IArbeitsschritte
+    public class Arbeitsschritte
     {
-        public List<IArbeitsschritte> zuPrüfen()
+        public static List<IArbeitsschritte> schritte { get; set; }
+        public static List<IArbeitsschritte> zuPrüfen()
         //0,6,8,10,17,22,23,33,30,36,39,41,42,43,44,06,08,40,37
         {
-            List<IArbeitsschritte> schritte = new List<IArbeitsschritte>();
             schritte = new List<IArbeitsschritte>();
             schritte.Add(new IArbeitsschritte { prüfschritt = "In Fahrerraum eingestiegen", prüfschrittID = "FahrrEinst" });//00
             schritte.Add(new IArbeitsschritte { prüfschritt = "Zur Fahrzeugfront gegangen", prüfschrittID = "frontGehn" });//01

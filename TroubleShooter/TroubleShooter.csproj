@@ -58,7 +58,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Abhängigkeiten.cs" />
+    <Compile Include="AbhängigkeitBlinker.cs" />
     <Compile Include="Arbeitsschritte.cs" />
     <Compile Include="ArbSchrBlinksysOptimal.cs" />
     <Compile Include="Autoteile.cs" />
@@ -68,7 +68,6 @@
     <Compile Include="FahrzeugFront.xaml.cs">
       <DependentUpon>FahrzeugFront.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Fakt.cs" />
     <Compile Include="FrontMotorraum.xaml.cs">
       <DependentUpon>FrontMotorraum.xaml</DependentUpon>
     </Compile>
@@ -76,8 +75,6 @@
     <Compile Include="Gruppenwahl.xaml.cs">
       <DependentUpon>Gruppenwahl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Inferenzmaschine.cs" />
-    <Compile Include="IRegel.cs" />
     <Compile Include="Lager.xaml.cs">
       <DependentUpon>Lager.xaml</DependentUpon>
     </Compile>
@@ -86,7 +83,6 @@
     </Compile>
     <Compile Include="IArbeitsschritte.cs" />
     <Compile Include="Protokoll.cs" />
-    <Compile Include="Regel.cs" />
     <Compile Include="SeiteFahrzeug.xaml.cs">
       <DependentUpon>SeiteFahrzeug.xaml</DependentUpon>
     </Compile>

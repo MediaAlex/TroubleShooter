@@ -20,9 +20,10 @@
             <Image Source="/TroubleShooter;component/Images/info-01.jpg" Opacity="0.75" MouseLeftButtonUp="Image_MouseLeftButtonUp" />
             <Image x:Name="ersatzteil_logo_gr_gif" Height="93" Source="ersatzteil-logo-gr.gif" Stretch="Fill" Opacity="0.75"/>
             <Image x:Name="menschen_biz_mannlich_smile_clip_art_425060_jpg" Height="132.628" Source="menschen-biz-mannlich-smile-clip-art_425060.jpg" Stretch="Fill" Opacity="0.75"/>
-            <Image x:Name="E_L__Auftrag_png" Height="72.393" Source="E&amp;L_ Auftrag.png" Stretch="Fill" Opacity="0.75"/>
+            <Image x:Name="E_L__Auftrag_png" Height="72.393" Source="E&amp;L_ Auftrag.png" Stretch="Fill" Opacity="0.75" MouseLeftButtonUp="image_MouseLeftButtonUp_1" />
         </StackPanel>
-		<Image x:Name="image" Margin="113,104,0,0" Source="/TroubleShooter;component/Images/EL_Auto.png" Height="446" VerticalAlignment="Top" HorizontalAlignment="Left" Width="979" />
+		<Image x:Name="image" Margin="113,104,0,0" Source="/TroubleShooter;component/Images/EL_Auto.png" Height="446" VerticalAlignment="Top" 
+               HorizontalAlignment="Left" Width="979" />
         <Ellipse Height="24" HorizontalAlignment="Left" Margin="625,254,0,0" Name="ellipse1" VerticalAlignment="Top" Width="36" 
                  ToolTip="Ins Fahrzeug einsteigen" MouseLeftButtonUp="ellipse1_MouseLeftButtonUp" >
         	<Ellipse.Fill>

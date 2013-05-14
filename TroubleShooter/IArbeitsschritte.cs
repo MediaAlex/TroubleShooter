@@ -5,7 +5,7 @@ using System.Text;
 
 namespace TroubleShooter
 {
-    public class IArbeitsschritte
+    public  class IArbeitsschritte
     {
         public string prüfschritt { get; set; }
         public string prüfschrittID { get; set; }

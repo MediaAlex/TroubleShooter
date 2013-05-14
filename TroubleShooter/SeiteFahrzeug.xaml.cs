@@ -64,5 +64,10 @@ namespace TroubleShooter
 
             MessageBox.Show("Vorgehen des Spielers: " + "\n" + protokoll + "\n\n" + "Optimales Vorgehen: " + "\n" + ASOpt);
         }
+
+        private void image_MouseLeftButtonUp_1(object sender, MouseButtonEventArgs e)
+        {
+            MessageBox.Show(App._situation[0].textAuftrag);
+        }
 	}
 }

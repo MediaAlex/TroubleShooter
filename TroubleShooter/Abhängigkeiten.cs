@@ -2,25 +2,21 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Windows;
 
 namespace TroubleShooter
 {
     public class Abhängigkeiten
     {
+        List<IRegel> helpList = new List<IRegel>();
+
         public Abhängigkeiten()
         {
             Fakt f1 = new Fakt();
             f1.bezeichnung = "bat";
+
             Fakt f2 = new Fakt();
-            f2.bezeichnung = "sichBlink";
-            Fakt f3 = new Fakt();
-            f3.bezeichnung = "blinkRel";
-            Fakt f4 = new Fakt();
-            f4.bezeichnung = "blinkSch";
-            Fakt f5 = new Fakt();
-            f5.bezeichnung = "blinkglühlLi";
-            Fakt f6 = new Fakt();
-            f6.bezeichnung = "blinkglühlRe";
+            f1.bezeichnung = "Blinker Schalter";
 
             Regel blinker = new Regel();
             blinker.bezeichnung = "Blinker";
@@ -37,39 +33,47 @@ namespace TroubleShooter
             Regel warnBlinker = new Regel();
             warnBlinker.bezeichnung = "Warnblinker";
 
-            blinker.voraussetzungen.Add(f1);
-            blinker.voraussetzungen.Add(f2);
-            blinker.voraussetzungen.Add(f3);
-            blinker.voraussetzungen.Add(f4);
+            Regel blinkSich = new Regel();
+            blinker.bezeichnung = "Sicherung Blinker";
 
-            blinkerLi.voraussetzungen.Add(f1);
-            blinkerLi.voraussetzungen.Add(f2);
-            blinkerLi.voraussetzungen.Add(f3);
-            blinkerLi.voraussetzungen.Add(f4);
-            blinkerLi.voraussetzungen.Add(f5);
+            Regel blinkRel = new Regel();
+            blinker.bezeichnung = "Relais Blinker";
 
-            blinkerRe.voraussetzungen.Add(f1);
-            blinkerRe.voraussetzungen.Add(f2);
-            blinkerRe.voraussetzungen.Add(f3);
-            blinkerRe.voraussetzungen.Add(f4);
-            blinkerRe.voraussetzungen.Add(f6);
+            Regel glBlLiV = new Regel();
+            blinker.bezeichnung = "Glühlampe Blinker Links vorne";
+
+            Regel glBlReV = new Regel();
+            blinker.bezeichnung = "Glühlampe Blinker Rechts vorne";
+
+            blinkSich.voraussetzungen.Add(f1);
+
+            blinkRel.voraussetzungen.Add(blinkSich);
+
+            blinkRel.voraussetzungen.Add(f2);
+
+            glBlLiV.voraussetzungen.Add(f1);
+            glBlLiV.voraussetzungen.Add(blinkRel);
+
+            glBlReV.voraussetzungen.Add(f1);
+            glBlReV.voraussetzungen.Add(blinkRel);
+
+            blinker.voraussetzungen.Add(blinkRel);
+
+            blinkerLi.voraussetzungen.Add(blinker);
+            blinkerLi.voraussetzungen.Add(glBlLiV);
+
+            blinkerRe.voraussetzungen.Add(blinker);
+            blinkerRe.voraussetzungen.Add(glBlLiV);
 
             warnBlinker.voraussetzungen.Add(f1);
-            warnBlinker.voraussetzungen.Add(f2);
-            warnBlinker.voraussetzungen.Add(f3);
+            warnBlinker.voraussetzungen.Add(blinkRel);
 
             abblendlicht.voraussetzungen.Add(f1);
 
             App._fakten.Add(f1);
             App._fakten.Add(f2);
-            App._fakten.Add(f3);
-            App._fakten.Add(f4);
-            App._fakten.Add(f5);
-            App._fakten.Add(f6);
 
-            //App._ziele.Add(blinker);
-            //App._ziele.Add(blinkerRe);
-            App._ziele.Add(blinkerLi);
+            App._ziele.Add(blinker);
 
             while (App._ziele.Count > 0)
             {
@@ -80,13 +84,68 @@ namespace TroubleShooter
                     if (!App._fakten.Contains(r))
                     {
                         App._ziele.Insert(0, r);
-
+                        if (!helpList.Contains(r))
+                        {
+                            helpList.Add(r);
+                        }
                     }
                     else
                     {
 
                     }
                 }
+                List<int> zuLoeschendeIndizes = new List<int>();
+                for(int i=0;i<helpList.Count;i++)
+                {
+                    bool isFact = true;
+                    foreach (IRegel r in helpList[i].voraussetzungen)
+                    {
+                        if (!App._fakten.Contains(r))
+                        {
+                            isFact = false;
+                        }
+                    }
+                    if (isFact)
+                    {
+
+                        App._fakten.Add((Fakt)helpList[i]);
+                        zuLoeschendeIndizes.Add(i);
+                        //helpList.RemoveAt(i);
+                    } 
+                }
+                foreach (int j in zuLoeschendeIndizes)
+                {
+                    helpList.RemoveAt(j);
+                }
+            }
+
+    
+
+            String bla = "";
+            foreach (IRegel f in App._fakten)
+            {
+                bla += f.bezeichnung + ";";
+            }
+
+            bool zielErreicht = true;
+            foreach (var regel in blinker.voraussetzungen)
+            {
+                if (!App._fakten.Contains(regel))
+                {
+                    zielErreicht = false;
+                    break;
+                }
+            }
+
+
+            MessageBox.Show("Voraussetzungen: "+bla);
+            if (zielErreicht)
+            {
+                MessageBox.Show("Jup, alles erreicht!");
+            }
+            else
+            {
+                MessageBox.Show("Njjjet");
             }
         }
     }

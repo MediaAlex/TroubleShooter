@@ -15,20 +15,23 @@ namespace TroubleShooter
     {
         //Defekt, Arbeitsschritte, Auftrrag, Protokoll
         public static List<IArbeitsschritte> _arbSchritteOptimal = new List<IArbeitsschritte>();
-        public static ObservableCollection<Autoteile> _teileBli = new ObservableCollection<Autoteile>();
+        public static ObservableCollection<Autoteile> _autoTeile = new ObservableCollection<Autoteile>();
         public static ObservableCollection<Situation> _situation = new ObservableCollection<Situation>();
         public static List<Protokoll> prot = new List<Protokoll>();
-        public static List<Arbeitsschritte> alleAS = new List<Arbeitsschritte>();
+        public static List<IArbeitsschritte> alleAS = Arbeitsschritte.zuPrüfen(); //new List<Arbeitsschritte>();
+
+        public static List<AbhängigkeitBlinker> abhängigkeiten = new List<AbhängigkeitBlinker>();
 
         //Inferenzmaschine
-        public static List<String> _zutaten = new List<string>();
-        public static List<string> _geraete = new List<string>();
-        public static List<Fakt> _fakten = new List<Fakt>();
-        public static List<IRegel> _ziele = new List<IRegel>();
+        //public static List<String> _zutaten = new List<string>();
+        //public static List<string> _geraete = new List<string>();
+        //public static List<Fakt> _fakten = new List<Fakt>();
+        //public static List<IRegel> _ziele = new List<IRegel>();
         
         //Start der Anwendung
         public void Application_Startup(object sender, StartupEventArgs e)
         {
+            
         }
     }
 }
