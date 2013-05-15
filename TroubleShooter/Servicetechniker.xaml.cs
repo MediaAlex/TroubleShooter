@@ -15,30 +15,58 @@ using TroubleShooter.Classen;
 
 namespace TroubleShooter
 {
-	public partial class Servicetechniker
-	{
-		public Servicetechniker()
-		{
-			this.InitializeComponent();
+    public partial class Servicetechniker
+    {
+        public Servicetechniker()
+        {
+            this.InitializeComponent();
             initDialog();
-		}
+        }
 
         List<DialogElement> alleDialoge = new List<DialogElement>();
         String currentDialog = "";
-        Random random = new Random();
-        Button von;
-        Button bis;
-        DialogElement zwischenFrageDialog = new DialogElement();
 
         List<string> abhTeile = new List<string>();
-        List<AbhängigkeitBlinker> ohneFunktion = new List<AbhängigkeitBlinker>();
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            App.abhängigkeiten.Add(new AbhängigkeitBlinker { fehl = "Blinker Rechts", gb = "blinkglühlRe", re = "blinkRel", schal = "blinkSch", si = "sichBlink", ba = "bat" });
-            App.abhängigkeiten.Add(new AbhängigkeitBlinker { fehl = "Blinker Links", gb = "blinkglühlLi", re = "blinkRel", schal = "blinkSch", si = "sichBlink", ba = "bat" });
+            App.abhängigkeiten.Add(new AbhängigkeitBlinker { 
+                fehl = "Blinker Rechts", 
+                gbRe = "blinkglühlRe", 
+                def = "blinkglühlRe" });
+            App.abhängigkeiten.Add(new AbhängigkeitBlinker { 
+                fehl = "Blinker Links", 
+                gbLi = "blinkglühlLi", 
+                def = "blinkglühlLi" });
+            App.abhängigkeiten.Add(new AbhängigkeitBlinker { 
+                fehl = "Blinker", 
+                gbLi = "blinkglühlLi", 
+                gbRe = "blinkglühlRe",
+                licht = "licht",
+                re = "blinkRel", 
+                schal = "blinkSch", 
+                si = "sichBlink", 
+                def = "bat" });
+            App.abhängigkeiten.Add(new AbhängigkeitBlinker { 
+                fehl = "Blinker", 
+                gbRe = "blinkglühlRe", 
+                gbLi = "blinkglühlLi", 
+                re = "blinkRel", 
+                schal = "blinkSch", 
+                def = "sichBlink" });
+            App.abhängigkeiten.Add(new AbhängigkeitBlinker { 
+                fehl = "Blinker", 
+                gbRe = "blinkglühlRe", 
+                gbLi = "blinkglühlLi", 
+                re = "blinkRel", 
+                def = "blinkSch" });
+            App.abhängigkeiten.Add(new AbhängigkeitBlinker { 
+                fehl = "Blinker", 
+                gbRe = "blinkglühlRe", 
+                gbLi = "blinkglühlLi", 
+                def = "blinkRel" });
             _Auftrag();
-            getDialog("", currentDialog);
+            getDialog(currentDialog);
         }
 
         private void but_weiter_Click(object sender, RoutedEventArgs e)
@@ -59,15 +87,11 @@ namespace TroubleShooter
             aktAuftrag.defekt = App._autoTeile[0].alleTeile()[rndNr].bezeichnung;
             aktAuftrag.defektID = App._autoTeile[0].alleTeile()[rndNr].bezID;
 
-            ohneFunktion = (from a in App.abhängigkeiten
-                            where
-                                a.ba == aktAuftrag.defektID || a.gb == aktAuftrag.defektID || a.re == aktAuftrag.defektID ||
-                                a.schal == aktAuftrag.defektID || a.si == aktAuftrag.defektID
-                            select a).ToList();
+            App.ohneFunktion = (from a in App.abhängigkeiten where a.def == aktAuftrag.defektID select a).ToList();
 
             _ArbeitsschritteFestlegen(aktAuftrag.defektID);
 
-            foreach (var x in ohneFunktion)
+            foreach (var x in App.ohneFunktion)
             {
                 abhTeile.Add(x.fehl);
             }
@@ -79,7 +103,7 @@ namespace TroubleShooter
 
             aktAuftrag.prüfFolge = App._arbSchritteOptimal;
             App._situation.Add(aktAuftrag);
-            ohneFunktion.Clear();
+            App.ohneFunktion.Clear();
             App.abhängigkeiten.Clear();
         }
 
@@ -146,15 +170,31 @@ namespace TroubleShooter
             DialogElement d6 = new DialogElement();
             d6.dialogID = "6";
             d6.dialogText = "Ok. Wenn sie wieder da sind, kommen sie zu mir. Ich habe da was für Sie";
+            d6.antwortenIDs.Add("11");
 
             DialogElement d7 = new DialogElement();
             d7.dialogID = "7";
-            d7.dialogText = "Oh, das tut mir aber sehr leid. Ich habe natürlich Verständniss. Sie können für immer nach Hause gehn!";
+            d7.dialogText = "Oh, das tut mir aber sehr leid. Ich habe natürlich Verständniss! Bye Bye";
+            d7.antwortenIDs.Add("11");
 
             DialogElement d8 = new DialogElement();
             d8.dialogID = "8";
             d8.dialogText = "Ja, Ich habe da was, hier. Lesen Sie den Auftrag durch und begeben sie sich zum Fahrzeug. Es wurde schon in die Werkstatt gefahren.";
-            
+            d8.antwortenIDs.Add("9");
+            d8.antwortenIDs.Add("10");
+
+            DialogElement d9 = new DialogElement();
+            d9.dialogID = "9";
+            d9.dialogText = "Ok. Ich mach mich sofort an die Arbeit.";
+
+            DialogElement d10 = new DialogElement();
+            d10.dialogID = "10";
+            d10.dialogText = "Oh, es tut mir leid. Ich merke gerade, dass ich zur Pause muss.";
+
+            DialogElement d11 = new DialogElement();
+            d11.dialogID = "11";
+            d11.dialogText = "OK";
+
             alleDialoge.Add(d1);
             alleDialoge.Add(d2);
             alleDialoge.Add(d3);
@@ -163,11 +203,14 @@ namespace TroubleShooter
             alleDialoge.Add(d6);
             alleDialoge.Add(d7);
             alleDialoge.Add(d8);
+            alleDialoge.Add(d9);
+            alleDialoge.Add(d10);
+            alleDialoge.Add(d11);
 
             currentDialog = "1";
         }
 
-        private void getDialog(string preis, string dialogID)
+        private void getDialog(string dialogID)
         {
             var dialog = (from node in alleDialoge
                           where node.dialogID == dialogID
@@ -177,35 +220,12 @@ namespace TroubleShooter
             foreach (String id in dialog[0].antwortenIDs)
             {
                 var res = (from node in alleDialoge
-                           where node.dialogID == id
-                           select node).ToList();
+                            where node.dialogID == id
+                            select node).ToList();
                 dialogHelp.Add(res[0]);
             }
 
-            if (dialog[0].dialogArt != null && dialog[0].dialogArt.Equals("C"))
-            {
-                lb_antworten.Visibility = Visibility.Hidden;
-                cv_orte.Visibility = Visibility.Visible;
-            }
-            else
-            {
-                cv_orte.Visibility = Visibility.Hidden;
-            }
-
-            if (preis != "")
-            {
-                dialog[0].dialogText = dialog[0].dialogText.Replace("???", preis);
-            }
-            if (dialog[0].dialogArt != null && dialog[0].dialogArt.Equals("Frage"))
-            {
-                tBl_servTechn.Text = "Fragen Sie!";
-            }
-            else
-            {
-                tBl_servTechn.Text = dialog[0].dialogText;
-                dialogHelp.Add(zwischenFrageDialog);
-            }
-
+            tBl_servTechn.Text = dialog[0].dialogText;
 
             lb_antworten.ItemsSource = dialogHelp;
         }
@@ -215,24 +235,32 @@ namespace TroubleShooter
             if (lb_antworten.SelectedItem != null)
             {
                 DialogElement tempDialog = ((DialogElement)lb_antworten.SelectedItem);
-                if (tempDialog.antwortenIDs.Count == 0) return;
 
-                if (tempDialog.dialogArt == "Frage")
+                if (tempDialog.dialogID == "9")
                 {
+                    SeiteFahrzeug sF = new SeiteFahrzeug();
+                    sF.ShowDialog();
+                }
 
-                    getDialog("", "9");
-
+                if (tempDialog.dialogID == "10")
+                {
+                    this.Close();
+                }
+                if (tempDialog.dialogID == "11")
+                {
+                    this.Close();
                 }
                 else
                 {
-
-                    int rand = random.Next(tempDialog.antwortenIDs.Count);
-                    currentDialog = tempDialog.antwortenIDs[rand];
-                    getDialog("", currentDialog);
+                    if (tempDialog.antwortenIDs.Count == 0) return;
+                    else
+                    {
+                        currentDialog = tempDialog.antwortenIDs[0];
+                        getDialog(currentDialog);
+                    }
                 }
-
 
             }
         }
-	}
+    }
 }

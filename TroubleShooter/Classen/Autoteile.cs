@@ -19,6 +19,7 @@ namespace TroubleShooter
             teileList.Add(new Autoteile { bezeichnung = "Blinkerschalter", bezID = "blinkSch" });
             teileList.Add(new Autoteile { bezeichnung = "Glühlampe Blinker links", bezID = "blinkglühlLi" });
             teileList.Add(new Autoteile { bezeichnung = "Glühlampe Blinker rechts", bezID = "blinkglühlRe" });
+            teileList.Add(new Autoteile { bezeichnung = "Abblendlicht", bezID = "licht" });
 
             return teileList;
         }

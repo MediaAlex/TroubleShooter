@@ -17,6 +17,7 @@ namespace TroubleShooter
         public static List<IArbeitsschritte> _arbSchritteOptimal = new List<IArbeitsschritte>();
         public static ObservableCollection<Autoteile> _autoTeile = new ObservableCollection<Autoteile>();
         public static ObservableCollection<Situation> _situation = new ObservableCollection<Situation>();
+        public static List<AbhängigkeitBlinker> ohneFunktion = new List<AbhängigkeitBlinker>();
         public static List<Protokoll> prot = new List<Protokoll>();
         public static List<IArbeitsschritte> alleAS = Arbeitsschritte.zuPrüfen(); //new List<Arbeitsschritte>();
 
