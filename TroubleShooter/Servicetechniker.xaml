@@ -10,7 +10,7 @@
     WindowStyle="None" Loaded="Window_Loaded">
 
 	<Grid x:Name="LayoutRoot" Background="White">
-		<StackPanel HorizontalAlignment="Left" Margin="10,10,0,10" Width="379">
+		<StackPanel HorizontalAlignment="Left" Margin="10,10,0,0" Width="379" Height="625" VerticalAlignment="Top">
 			<Image x:Name="image" Height="656.5" Source="/TroubleShooter;component/Images/Comic-Mann2spaltig-333x617.jpg" RenderTransformOrigin="0.5,0.5" >
 				<Image.RenderTransform>
 					<TransformGroup>
@@ -22,20 +22,15 @@
 				</Image.RenderTransform>
 			</Image>
 		</StackPanel>
-		<StackPanel Height="241" Margin="394,10,10,0" VerticalAlignment="Top">
-			<TextBlock x:Name="textBlock" TextWrapping="Wrap" Text="TextBlock" Height="120.96" Margin="50,40,40,0" FontSize="26.667"/>
+		<StackPanel Height="184" Margin="0,10,10,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="828">
+			<TextBlock x:Name="tBl_servTechn" TextWrapping="Wrap" Text="TextBlock" Height="120.96" Margin="50,40,40,0" FontSize="26.667"/>
 		</StackPanel>
 		<StackPanel Margin="394,0,10,148" Background="#FFB5C1CE" Height="158.5" VerticalAlignment="Bottom" Orientation="Horizontal">
-            <ListBox Width="850">
-                <ListBox.ItemTemplate>
-                    <DataTemplate>
-                        <TextBlock/>
-                    </DataTemplate>
-                </ListBox.ItemTemplate>
+            <ListBox Name="lb_antworten" Width="828" Height="159" DisplayMemberPath="dialogText" SelectionChanged="lb_fragen_SelectionChanged">
             </ListBox>
 			
 		</StackPanel>
         
-        <Button Name="but_weiter" Content="weiter" Margin="1052,575,81,48" Click="but_weiter_Click" />
+        <Button Name="but_weiter" Content="weiter" Margin="0,524,12,0" Click="but_weiter_Click" HorizontalAlignment="Right" Width="119" Height="34" VerticalAlignment="Top" />
 	</Grid>
 </Window>

@@ -58,10 +58,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="AbhängigkeitBlinker.cs" />
-    <Compile Include="Arbeitsschritte.cs" />
-    <Compile Include="ArbSchrBlinksysOptimal.cs" />
-    <Compile Include="Autoteile.cs" />
+    <Compile Include="Classen\AbhängigkeitBlinker.cs" />
+    <Compile Include="Classen\Arbeitsschritte.cs" />
+    <Compile Include="Classen\ArbSchrBlinksysOptimal.cs" />
+    <Compile Include="Classen\Autoteile.cs" />
+    <Compile Include="Classen\DialogElement.cs" />
     <Compile Include="FahrzeugFahrerraum.xaml.cs">
       <DependentUpon>FahrzeugFahrerraum.xaml</DependentUpon>
     </Compile>
@@ -71,7 +72,7 @@
     <Compile Include="FrontMotorraum.xaml.cs">
       <DependentUpon>FrontMotorraum.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Gruppe.cs" />
+    <Compile Include="Classen\Gruppe.cs" />
     <Compile Include="Gruppenwahl.xaml.cs">
       <DependentUpon>Gruppenwahl.xaml</DependentUpon>
     </Compile>
@@ -81,15 +82,15 @@
     <Compile Include="Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
     </Compile>
-    <Compile Include="IArbeitsschritte.cs" />
-    <Compile Include="Protokoll.cs" />
+    <Compile Include="Classen\IArbeitsschritte.cs" />
+    <Compile Include="Classen\Protokoll.cs" />
     <Compile Include="SeiteFahrzeug.xaml.cs">
       <DependentUpon>SeiteFahrzeug.xaml</DependentUpon>
     </Compile>
     <Compile Include="Servicetechniker.xaml.cs">
       <DependentUpon>Servicetechniker.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Situation.cs" />
+    <Compile Include="Classen\Situation.cs" />
     <Page Include="FahrzeugFahrerraum.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -118,7 +119,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Ausbilder.cs" />
+    <Compile Include="Classen\Ausbilder.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -161,10 +162,10 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Content Include="E&amp;L_Cockpit.png">
+    <Content Include="Images\E&amp;L_Cockpit.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="E&amp;L_NurCockpit.png">
+    <Content Include="Images\E&amp;L_NurCockpit.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <None Include="Properties\Settings.settings">
@@ -174,10 +175,10 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Batterie.png">
+    <Content Include="Images\Batterie.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="BatterieKabel.png">
+    <Content Include="Images\BatterieKabel.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Resource Include="Benutzerkonten.xml">
@@ -185,34 +186,30 @@
     </Resource>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="BlinkerLinks.png">
+    <Content Include="Images\BlinkerLinks.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="BlinkerRechts.png">
+    <Content Include="Images\BlinkerRechts.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="BlinkerVorneLinks.png">
+    <Content Include="Images\BlinkerVorneLinks.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="BlinkerVorneRechts.png">
+    <Content Include="Images\BlinkerVorneRechts.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="E&amp;L_ Auftrag.png">
+    <Content Include="Images\E&amp;L_ Auftrag.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="ersatzteil-logo-gr.gif">
+    <Content Include="Images\ES_Kfz_Front01.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="ES_Kfz_Front01.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ES_Kfz_Motorraum.png">
+    <Content Include="Images\ES_Kfz_Motorraum.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Resource Include="Gruppen.xml" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="menschen-biz-mannlich-smile-clip-art_425060.jpg" />
     <Resource Include="Spielstand_gr00134502.xml" />
   </ItemGroup>
   <ItemGroup>
