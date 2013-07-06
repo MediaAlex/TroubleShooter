@@ -11,12 +11,14 @@
     WindowStyle="None" Loaded="Window_Loaded">
 
 	<Grid x:Name="LayoutRoot" Background="White">
-        <Grid Width="1254" Height="684" HorizontalAlignment="Left" VerticalAlignment="Top">
+        <Grid Width="1254" Height="684" HorizontalAlignment="Left" VerticalAlignment="Top" Name="gr_oberfl">
             <Image x:Name="img_cockpit" Margin="0,96.5,0,0" Stretch="Fill" Source="/Images/EL_NurCockpitRoh.png" HorizontalAlignment="Left" 
                    MinWidth="1232" MinHeight="524" VerticalAlignment="Top" />
 
             <Rectangle Height="43" HorizontalAlignment="Left" Margin="353,278,0,0" Name="rectangle7" Stroke="Black" VerticalAlignment="Top" 
                        Width="108" Fill="Black" Opacity="0" MouseLeftButtonUp="MenüBlinkerEinbauen" />
+            <Ellipse Height="25" HorizontalAlignment="Left" Margin="231,248,0,0" Name="el_licht" Stroke="Black" VerticalAlignment="Top" Width="28" Fill="#FF3E2C2C" 
+                     MouseLeftButtonUp="el_licht_MouseLeftButtonUp"/>
             <Image Source="/TroubleShooter;component/Images/Blinker_Scheibenwischerschalter.png" HorizontalAlignment="Left" Width="257.5" Margin="279,232.5,0,0" Height="101" 
                    VerticalAlignment="Top" Name="img_blSchW" MouseLeftButtonUp="img_SchW_MouseLeftButtonUp" ToolTip="Blinker-/Scheibenwischer-Schalter"/>
             <Image SnapsToDevicePixels="True" Source="/TroubleShooter;component/Images/Lenkrad_Roh.png" Margin="291.5,161.826,0,0" Height="227.174" Name="img_lenkr"
@@ -24,7 +26,61 @@
                    ToolTip="Lenkrad"/>
             <Image Source="/TroubleShooter;component/Images/ES_Kfz_Cockpit.png" Margin="329,254,0,0" HorizontalAlignment="Left" Width="172" 
                    MouseLeftButtonDown="hupe_MouseLeftButtonUp" Height="94" VerticalAlignment="Top" Name="img_hupe" ToolTip="Hupe"/>
-        
+            
+            <!--Rects für Aktionsmenüs Klick ********** Anfang **********-->
+            <Rectangle Height="20" HorizontalAlignment="Left" Margin="319,238,0,0" Name="rectangle5" VerticalAlignment="Top" 
+                       Width="56" MouseLeftButtonUp="img_blinker_MouseLeftButtonUp" ToolTip="Blinker Schalter">
+                <Rectangle.Fill>
+                    <SolidColorBrush Color="Black" Opacity="0.1"/>
+                </Rectangle.Fill>
+            </Rectangle>
+            <Rectangle Height="14" HorizontalAlignment="Left" Margin="390,238,0,0" Name="rectangle1" VerticalAlignment="Top" 
+                       Width="45" MouseLeftButtonUp="img_wrnBl_MouseLeftButtonUp" ToolTip="Warnblinker">
+                <Rectangle.Fill>
+                    <SolidColorBrush Color="Black" Opacity="0.1"/>
+                </Rectangle.Fill>
+            </Rectangle>
+            <Rectangle Height="20" HorizontalAlignment="Left" Margin="446,238,0,0" Name="rectangle2" VerticalAlignment="Top" 
+                       Width="55" MouseLeftButtonUp="img_SchW_MouseLeftButtonUp" ToolTip="Scheibenwischer Schalter">
+                <Rectangle.Fill>
+                    <SolidColorBrush Color="Black" Opacity="0.1"/>
+                </Rectangle.Fill>
+            </Rectangle>
+            <Rectangle Height="26" HorizontalAlignment="Left" Margin="520,232,0,0" Name="rectangle3" VerticalAlignment="Top" Width="16" 
+                       MouseLeftButtonUp="img_SchW_MouseLeftButtonUp" ToolTip="Scheibenwischer Schalter">
+                <Rectangle.Fill>
+                    <SolidColorBrush Color="Black" Opacity="0.1"/>
+                </Rectangle.Fill>
+            </Rectangle>
+            <Rectangle Height="26" HorizontalAlignment="Left" Margin="279,232,0,0" Name="rectangle4" VerticalAlignment="Top" Width="21" 
+                       MouseLeftButtonUp="img_blinker_MouseLeftButtonUp" ToolTip="Blinker Schalter">
+                <Rectangle.Fill>
+                    <SolidColorBrush Color="Black" Opacity="0.1"/>
+                </Rectangle.Fill>
+            </Rectangle>
+            <Rectangle Height="16" HorizontalAlignment="Left" Margin="235,410,0,0" Name="rectangle6" VerticalAlignment="Top" Width="82" 
+                       MouseLeftButtonUp="img_sichRel_MouseLeftButtonUp">
+                <Rectangle.Fill>
+                    <SolidColorBrush Color="Black" Opacity="0.1" />
+                </Rectangle.Fill>
+            </Rectangle>
+            <!--Rects für Aktionsmenüs Klick ********** Ende **********-->
+            
+            <Image Source="/TroubleShooter;component/Images/SicherungRelais.png" Width="800" Margin="201,45,0,0" Height="600" VerticalAlignment="Top" 
+                   HorizontalAlignment="Left" Name="img_sichRel" MouseLeave="img_sichRel_MouseLeave" Visibility="Collapsed"/>
+            <Rectangle Height="58" HorizontalAlignment="Left" Margin="591,216,0,0" Stroke="{x:Null}" VerticalAlignment="Top" Width="58" 
+                       Name="rec_relBl" MouseLeftButtonUp="rec_relBl_MouseLeftButtonUp" MouseLeave="rec_relBl_MouseLeave">
+                <Rectangle.Fill>
+                    <SolidColorBrush />
+                </Rectangle.Fill>
+            </Rectangle>
+            <Rectangle Height="51" HorizontalAlignment="Left" Margin="548,366,0,0" Stroke="{x:Null}" VerticalAlignment="Top" Width="16" 
+                       Name="rec_sichBl" MouseLeftButtonUp="rec_sichBl_MouseLeftButtonUp" MouseLeave="rec_sichBl_MouseLeave">
+                <Rectangle.Fill>
+                    <SolidColorBrush />
+                </Rectangle.Fill>
+            </Rectangle>
+            
             <!--Aktionsmenüs ***** Anfang **********-->
             <StackPanel Name="stPan_menuBlinker" Margin="140,193.5,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="141" 
                         Visibility="Collapsed" MouseLeave="visibCol_MouseLeave">
@@ -77,8 +133,35 @@
                 <StackPanel.Background>
                     <SolidColorBrush Color="#FF2054A9" Opacity="0.85"/>
                 </StackPanel.Background>
-                <TextBlock Name="tBl_siPr" Text="Sicherungen und Relais Prüfen" Margin="5,5,5,0" FontWeight="Bold" 
-                           MouseLeftButtonUp="tBl_sichRelPr_MouseLeftButtonUp"/>
+                <TextBlock Name="tBl_siRelRein" Text="Sicherungen und Relais reinschauen" Margin="5,5,5,0" FontWeight="Bold" 
+                           MouseLeftButtonUp="tBl_sichRelRein_MouseLeftButtonUp"/>
+            </StackPanel>
+            <StackPanel Name="stPan_menuSich" Margin="224,337,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="141" Visibility="Collapsed" 
+                        MouseLeave="visibCol_MouseLeave">
+                <StackPanel.Background>
+                    <SolidColorBrush Color="#FF2054A9" Opacity="0.85"/>
+                </StackPanel.Background>
+                <TextBlock Name="tBl_siPr" Text="Sicherungen prüfen" Margin="5,5,5,0" FontWeight="Bold" 
+                           MouseLeftButtonUp="tBl_siPr_MouseLeftButtonUp" Visibility="Visible"/>
+                <TextBlock Name="tBl_siAusb" Text="Sicherungen ausbauen" Margin="5,5,5,0" FontWeight="Bold" 
+                           MouseLeftButtonUp="tBl_sichAusb_MouseLeftButtonUp" Visibility="Visible"/>
+                <TextBlock Name="tBl_siEinb" Text="Sicherungen einbauen" Margin="5,5,5,0" FontWeight="Bold" 
+                           MouseLeftButtonUp="tBl_sichEinb_MouseLeftButtonUp" Visibility="Collapsed"/>
+            </StackPanel>
+
+            <StackPanel Name="stPan_menuRel" Margin="224,337,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="141" Visibility="Collapsed" 
+                        MouseLeave="visibCol_MouseLeave">
+                <StackPanel.Background>
+                    <SolidColorBrush Color="#FF2054A9" Opacity="0.85"/>
+                </StackPanel.Background>
+                <TextBlock Name="tBl_relEingPrüf" Text="Relais Eingang prüfen" Margin="5,5,5,0" FontWeight="Bold" 
+                           MouseLeftButtonUp="tBl_RelEingPrüf_MouseLeftButtonUp" Visibility="Visible"/>
+                <TextBlock Name="tBl_relAusgPrüf" Text="Relais Ausgang prüfen" Margin="5,5,5,0" FontWeight="Bold" 
+                           MouseLeftButtonUp="tBl_relAusgPrüf_MouseLeftButtonUp" Visibility="Visible"/>
+                <TextBlock Name="tBl_relAusb" Text="Relais ausbauen" Margin="5,5,5,0" FontWeight="Bold" 
+                           MouseLeftButtonUp="tBl_relAusb_MouseLeftButtonUp" Visibility="Visible"/>
+                <TextBlock Name="tBl_relEinb" Text="Relais Einbauen" Margin="5,5,5,0" FontWeight="Bold" 
+                           MouseLeftButtonUp="tBl_relEinb_MouseLeftButtonUp" Visibility="Collapsed"/>
             </StackPanel>
 
             <StackPanel Name="stPan_menuLenkr" Margin="520,262,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="141" Visibility="Collapsed" 
@@ -119,51 +202,10 @@
                 </Ellipse.Fill>
             </Ellipse>
         
-            <!--Rects für Aktionsmenüs Klick ********** Anfang **********-->
-            <Rectangle Height="20" HorizontalAlignment="Left" Margin="319,238,0,0" Name="rectangle5" VerticalAlignment="Top" 
-                       Width="56" MouseLeftButtonUp="img_blinker_MouseLeftButtonUp" ToolTip="Blinker Schalter">
-                <Rectangle.Fill>
-                    <SolidColorBrush Color="Black" Opacity="0.1"/>
-                </Rectangle.Fill>
-            </Rectangle>
-            <Rectangle Height="14" HorizontalAlignment="Left" Margin="390,238,0,0" Name="rectangle1" VerticalAlignment="Top" 
-                       Width="45" MouseLeftButtonUp="img_wrnBl_MouseLeftButtonUp" ToolTip="Warnblinker">
-        	    <Rectangle.Fill>
-        		    <SolidColorBrush Color="Black" Opacity="0.1"/>
-        	    </Rectangle.Fill>
-            </Rectangle>
-            <Rectangle Height="20" HorizontalAlignment="Left" Margin="446,238,0,0" Name="rectangle2" VerticalAlignment="Top" 
-                       Width="55" MouseLeftButtonUp="img_SchW_MouseLeftButtonUp" ToolTip="Scheibenwischer Schalter">
-        	    <Rectangle.Fill>
-        		    <SolidColorBrush Color="Black" Opacity="0.1"/>
-        	    </Rectangle.Fill>
-            </Rectangle>
-            <Rectangle Height="26" HorizontalAlignment="Left" Margin="520,232,0,0" Name="rectangle3" VerticalAlignment="Top" Width="16" 
-                       MouseLeftButtonUp="img_SchW_MouseLeftButtonUp" ToolTip="Scheibenwischer Schalter">
-        	    <Rectangle.Fill>
-        		    <SolidColorBrush Color="Black" Opacity="0.1"/>
-        	    </Rectangle.Fill>
-            </Rectangle>
-            <Rectangle Height="26" HorizontalAlignment="Left" Margin="279,232,0,0" Name="rectangle4" VerticalAlignment="Top" Width="21" 
-                       MouseLeftButtonUp="img_blinker_MouseLeftButtonUp" ToolTip="Blinker Schalter">
-        	    <Rectangle.Fill>
-        		    <SolidColorBrush Color="Black" Opacity="0.1"/>
-        	    </Rectangle.Fill>
-            </Rectangle>
-            <Rectangle Height="16" HorizontalAlignment="Left" Margin="235,410,0,0" Name="rectangle6" VerticalAlignment="Top" Width="82" 
-                       MouseLeftButtonUp="img_sichRel_MouseLeftButtonUp">
-                <Rectangle.Fill>
-                    <SolidColorBrush Color="Black" Opacity="0.1" />
-                </Rectangle.Fill>
-            </Rectangle>
-            <!--Rects für Aktionsmenüs Klick ********** Ende **********-->
-
             <Ellipse Height="85" HorizontalAlignment="Left" Margin="224,85,0,0" Name="el_blLicLi" Stroke="{x:Null}" VerticalAlignment="Top" Width="161" Fill="{x:Null}"></Ellipse>
             <Ellipse Height="85" HorizontalAlignment="Left" Margin="848,85,0,0" Name="el_blLicRe" Stroke="{x:Null}" VerticalAlignment="Top" Width="161" Fill="{x:Null}"></Ellipse>
             <Rectangle Height="134" HorizontalAlignment="Left" Margin="225,22,0,0" Name="rec_licht" Stroke="{x:Null}" VerticalAlignment="Top" Width="789" />
-            <Ellipse Height="25" HorizontalAlignment="Left" Margin="231,248,0,0" Name="el_licht" Stroke="Black" VerticalAlignment="Top" Width="28" Fill="#FF3E2C2C" 
-                     MouseLeftButtonUp="el_licht_MouseLeftButtonUp"/>
-
+            
         </Grid>
         
         <!-- Rechte Menüleiste-->
@@ -178,9 +220,9 @@
                 <DropShadowEffect Direction="225" ShadowDepth="1" BlurRadius="40"/>
             </StackPanel.Effect>
             <Image Source="/TroubleShooter;component/Images/info-01.jpg" Opacity="0.75" />
-            <Image x:Name="ersatzteil_logo_gr_gif" Height="93" Source="ersatzteil-logo-gr.gif" Stretch="Fill" Opacity="0.75"/>
-            <Image x:Name="menschen_biz_mannlich_smile_clip_art_425060_jpg" Height="132.628" Source="menschen-biz-mannlich-smile-clip-art_425060.jpg" Stretch="Fill" Opacity="0.75"/>
-            <Image x:Name="E_L__Auftrag_png" Height="72.393" Source="E&amp;L_ Auftrag.png" Stretch="Fill" Opacity="0.75"/>
+            <Image x:Name="ersatzteil_logo_gr_gif" Height="93" Source="/TroubleShooter;component/Images/ersatzteil-logo-gr.gif" Stretch="Fill" Opacity="0.75"/>
+            <Image x:Name="menschen_biz_mannlich_smile_clip_art_425060_jpg" Height="132.628" Source="/TroubleShooter;component/Images/menschen-biz-mannlich-smile-clip-art_425060.jpg" Stretch="Fill" Opacity="0.75"/>
+            <Image x:Name="E_L__Auftrag_png" Height="72.393" Source="/TroubleShooter;component/Images/EL_ Auftrag.png" Stretch="Fill" Opacity="0.75"/>
         </StackPanel>
     </Grid>
 </Window>

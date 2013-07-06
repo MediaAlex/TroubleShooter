@@ -10,6 +10,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Windows.Navigation;
+using System.Linq;
 
 namespace TroubleShooter
 {
@@ -53,21 +54,41 @@ namespace TroubleShooter
         {
             string protokoll = "";
             string ASOpt = "";
+            List<string> prot = new List<string>();
+            List<string> optArbSchr = new List<string>();
+
             foreach (var item in App.prot)
             {
                 protokoll += (item.prüfschritt + "\n");
+                prot.Add(item.prüfschritt);
             }
             foreach (var item in App._arbSchritteOptimal)
             {
                 ASOpt += (item.prüfschritt + "\n");
+                optArbSchr.Add(item.prüfschritt);
             }
 
             MessageBox.Show("Vorgehen des Spielers: " + "\n" + protokoll + "\n\n" + "Optimales Vorgehen: " + "\n" + ASOpt);
+
+            var objs = (from a in prot from b in optArbSchr where a.CompareTo(b) == 0 select new { a, b }).Distinct();
+
+            string ausgabe = "";
+            foreach (var obj in objs)
+            {
+                ausgabe += (obj.a + " = " + obj.b + "\n");
+            }
+            MessageBox.Show(ausgabe);
         }
 
         private void image_MouseLeftButtonUp_1(object sender, MouseButtonEventArgs e)
         {
             MessageBox.Show(App._situation[0].textAuftrag);
+        }
+
+        private void menschen_biz_mannlich_smile_clip_art_425060_jpg_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            App.nav.Add("werkstatt");
+            this.Close();
         }
 	}
 }

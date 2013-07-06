@@ -3,24 +3,24 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="FahrzeugFront" Width="1254" Height="684"
         WindowState="Maximized"
-        WindowStyle="None">
+        WindowStyle="None" Loaded="Window_Loaded">
     <Grid>
         
         <!-- Fahrzeug-->
-        <Grid HorizontalAlignment="Left" Width="1027" Height="635" VerticalAlignment="Top" Margin="200,0,0,0">
-            <Image x:Name="image" Margin="0,-32,0,0" Source="ES_Kfz_Front01.png" HorizontalAlignment="Left" Width="1027" Height="667" VerticalAlignment="Top" />
+        <Grid HorizontalAlignment="Left" Width="1027" Height="635" VerticalAlignment="Top" Margin="200,0,0,0" Name="gr_oberfl">
+            <Image x:Name="image" Margin="0,-32,0,0" Source="/TroubleShooter;component/Images/ES_Kfz_Front01.png" HorizontalAlignment="Left" Width="1027" Height="667" VerticalAlignment="Top" />
             <Rectangle Height="635" HorizontalAlignment="Right" Name="rectangle1" VerticalAlignment="Top" Width="200" 
                         MouseLeftButtonUp="ZurSeiteFahrzeug" Fill="Black" Opacity="0" />
             <Rectangle Height="135" Margin="78,175,0,0" VerticalAlignment="Top" MouseLeftButtonUp="ZumMotorraum" HorizontalAlignment="Left" 
                        Width="678" Fill="Black" Opacity="0" />
             <Image x:Name="img_blLiDran" HorizontalAlignment="Left" Height="50.106" Margin="36,0,0,158" VerticalAlignment="Bottom" Width="78.5" 
-                   Source="BlinkerLinks.png" Visibility="Visible" />
+                   Source="/TroubleShooter;component/Images/BlinkerLinks.png" Visibility="Visible" />
             <Image x:Name="img_blReDran" HorizontalAlignment="Right" Height="57.966" Margin="0,0,213,151" VerticalAlignment="Bottom" Width="76" 
-                   Source="BlinkerRechts.png" Visibility="Visible"/>
+                   Source="/TroubleShooter;component/Images/BlinkerRechts.png" Visibility="Visible"/>
             <Image x:Name="img_blLiRaus" HorizontalAlignment="Left" Height="120" Margin="0,0,0,84" VerticalAlignment="Bottom" Width="147.366" 
-                   Source="BlinkerVorneLinks.png" Visibility="Collapsed"/>
+                   Source="/TroubleShooter;component/Images/BlinkerVorneLinks.png" Visibility="Collapsed"/>
             <Image x:Name="img_blReRaus" HorizontalAlignment="Right" Height="133.14" Margin="0,0,150,50" VerticalAlignment="Bottom" Width="131" 
-                   Source="BlinkerVorneRechts.png" Visibility="Collapsed"/>
+                   Source="/TroubleShooter;component/Images/BlinkerVorneRechts.png" Visibility="Collapsed"/>
             <Rectangle Name="rec_blReDrMenü" HorizontalAlignment="Left" Height="45" Margin="40,0,0,158" VerticalAlignment="Bottom" Width="62" 
                        MouseLeftButtonUp="BlinkerlinksDranMenü" Visibility="Visible" Fill="Black" Opacity="0" />
             <Rectangle Name="rec_blLiDrMenü" HorizontalAlignment="Right" Height="45" Margin="0,0,225,160" VerticalAlignment="Bottom" Width="54" 
@@ -29,6 +29,8 @@
                        HorizontalAlignment="Left" Width="74" Visibility="Collapsed" Fill="Black" Opacity="0" />
             <Rectangle Name="rec_blReRaMenü" Height="45" Margin="0,0,158,54" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="66" 
                         MouseLeftButtonUp="BlinkerRechtsRausMenü" Visibility="Collapsed" Fill="Black" Opacity="0" />
+            <Ellipse Height="53" HorizontalAlignment="Left" Margin="742,426,0,0" Name="el_blLicRe" Stroke="{x:Null}" VerticalAlignment="Top" Width="63" />
+            <Ellipse Height="53" HorizontalAlignment="Left" Margin="39,430,0,0" Name="el_blLicLi" Stroke="{x:Null}" VerticalAlignment="Top" Width="63" />
 
             <!--Aktionsmenüs ***** Anfang **********-->
             <StackPanel Name="stPan_menuBlinkerLinks" Margin="40,0,0,205" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="141" 
@@ -96,9 +98,9 @@
                 <DropShadowEffect Direction="225" ShadowDepth="1" BlurRadius="40"/>
             </StackPanel.Effect>
             <Image Source="/TroubleShooter;component/Images/info-01.jpg" Opacity="0.75" />
-            <Image x:Name="ersatzteil_logo_gr_gif" Height="93" Source="ersatzteil-logo-gr.gif" Stretch="Fill" Opacity="0.75"/>
-            <Image x:Name="menschen_biz_mannlich_smile_clip_art_425060_jpg" Height="132.628" Source="menschen-biz-mannlich-smile-clip-art_425060.jpg" Stretch="Fill" Opacity="0.75"/>
-            <Image x:Name="E_L__Auftrag_png" Height="72.393" Source="E&amp;L_ Auftrag.png" Stretch="Fill" Opacity="0.75"/>
+            <Image x:Name="ersatzteil_logo_gr_gif" Height="93" Source="/TroubleShooter;component/Images/ersatzteil-logo-gr.gif" Stretch="Fill" Opacity="0.75"/>
+            <Image x:Name="menschen_biz_mannlich_smile_clip_art_425060_jpg" Height="132.628" Source="/TroubleShooter;component/Images/menschen-biz-mannlich-smile-clip-art_425060.jpg" Stretch="Fill" Opacity="0.75"/>
+            <Image x:Name="E_L__Auftrag_png" Height="72.393" Source="/TroubleShooter;component/Images/EL_ Auftrag.png" Stretch="Fill" Opacity="0.75"/>
         </StackPanel>
     </Grid>
 </Window>

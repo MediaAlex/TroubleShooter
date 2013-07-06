@@ -24,6 +24,7 @@ namespace TroubleShooter
 
         private void button1_Click(object sender, RoutedEventArgs e)
         {
+            App.nav.Add("profil");
             Servicetechniker sT = new Servicetechniker();
             sT.ShowDialog();
         }

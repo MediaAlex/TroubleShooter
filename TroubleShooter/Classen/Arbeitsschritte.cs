@@ -5,7 +5,7 @@ using System.Text;
 
 namespace TroubleShooter
 {
-    public class Arbeitsschritte
+    public class Arbeitsschritte    
     {
         public static List<IArbeitsschritte> schritte { get; set; }
         public static List<IArbeitsschritte> zuPrüfen()
@@ -57,6 +57,7 @@ namespace TroubleShooter
             schritte.Add(new IArbeitsschritte { prüfschritt = "Blinkerschalter Spannung Ausgang geprüft", prüfschrittID = "blinkSpanAusgPrüf" });//42
             schritte.Add(new IArbeitsschritte { prüfschritt = "Blinkerschalter ausgebaut", prüfschrittID = "blinkSchAusb" });//43
             schritte.Add(new IArbeitsschritte { prüfschritt = "Blinkerschalter eingebaut", prüfschrittID = "blinkSchEinb" });//44
+            schritte.Add(new IArbeitsschritte { prüfschritt = "Batterie geladen", prüfschrittID = "BatLaden" });//45
 
             return schritte;
         }

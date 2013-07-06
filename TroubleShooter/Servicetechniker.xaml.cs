@@ -20,7 +20,7 @@ namespace TroubleShooter
         public Servicetechniker()
         {
             this.InitializeComponent();
-            initDialog();
+            InitDialog();
         }
 
         List<DialogElement> alleDialoge = new List<DialogElement>();
@@ -30,43 +30,85 @@ namespace TroubleShooter
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            App.abhängigkeiten.Add(new AbhängigkeitBlinker { 
-                fehl = "Blinker Rechts", 
-                gbRe = "blinkglühlRe", 
-                def = "blinkglühlRe" });
-            App.abhängigkeiten.Add(new AbhängigkeitBlinker { 
-                fehl = "Blinker Links", 
-                gbLi = "blinkglühlLi", 
-                def = "blinkglühlLi" });
-            App.abhängigkeiten.Add(new AbhängigkeitBlinker { 
-                fehl = "Blinker", 
-                gbLi = "blinkglühlLi", 
+            if (App.collapsTBls == null)
+            {
+                App.collapsTBls = new List<TextBlock>();
+                FülleColTBls();
+            }
+
+            if (App.collapsImgs == null)
+                App.collapsImgs = new List<string>();
+
+            if (App.visTBls == null)
+                App.visTBls = new List<TextBlock>();
+
+            SetzeAbhängigkeiten();
+            _Auftrag();
+            GetDialog(currentDialog);
+        }
+
+        private void SetzeAbhängigkeiten()
+        {
+            App.abhängigkeiten.Add(new AbhängigkeitBlinker
+            {
+                fehl = "Blinker Rechts",
+                gbRe = "blinkglühlRe",
+                def = "blinkglühlRe"
+            });
+            App.abhängigkeiten.Add(new AbhängigkeitBlinker
+            {
+                fehl = "Blinker Links",
+                gbLi = "blinkglühlLi",
+                def = "blinkglühlLi"
+            });
+            App.abhängigkeiten.Add(new AbhängigkeitBlinker
+            {
+                fehl = "Blinker",
+                gbLi = "blinkglühlLi",
                 gbRe = "blinkglühlRe",
                 licht = "licht",
-                re = "blinkRel", 
-                schal = "blinkSch", 
-                si = "sichBlink", 
-                def = "bat" });
-            App.abhängigkeiten.Add(new AbhängigkeitBlinker { 
-                fehl = "Blinker", 
-                gbRe = "blinkglühlRe", 
-                gbLi = "blinkglühlLi", 
-                re = "blinkRel", 
-                schal = "blinkSch", 
-                def = "sichBlink" });
-            App.abhängigkeiten.Add(new AbhängigkeitBlinker { 
-                fehl = "Blinker", 
-                gbRe = "blinkglühlRe", 
-                gbLi = "blinkglühlLi", 
-                re = "blinkRel", 
-                def = "blinkSch" });
-            App.abhängigkeiten.Add(new AbhängigkeitBlinker { 
-                fehl = "Blinker", 
-                gbRe = "blinkglühlRe", 
-                gbLi = "blinkglühlLi", 
-                def = "blinkRel" });
-            _Auftrag();
-            getDialog(currentDialog);
+                re = "blinkRel",
+                schal = "blinkSch",
+                si = "sichBlink",
+                def = "bat"
+            });
+            App.abhängigkeiten.Add(new AbhängigkeitBlinker
+            {
+                fehl = "Blinker",
+                gbRe = "blinkglühlRe",
+                gbLi = "blinkglühlLi",
+                re = "blinkRel",
+                schal = "blinkSch",
+                def = "sichBlink"
+            });
+            App.abhängigkeiten.Add(new AbhängigkeitBlinker
+            {
+                fehl = "Blinker",
+                gbRe = "blinkglühlRe",
+                gbLi = "blinkglühlLi",
+                re = "blinkRel",
+                def = "blinkSch"
+            });
+            App.abhängigkeiten.Add(new AbhängigkeitBlinker
+            {
+                fehl = "Blinker",
+                gbRe = "blinkglühlRe",
+                gbLi = "blinkglühlLi",
+                def = "blinkRel"
+            });
+        }
+
+        private void FülleColTBls()
+        {
+            FahrzeugFahrerraum ff = new FahrzeugFahrerraum();
+            App.collapsTBls.Add(ff.tBl_blAusb);
+            App.collapsTBls.Add(ff.tBl_eingPruf);
+            App.collapsTBls.Add(ff.tBl_ausgPruf);
+            App.collapsTBls.Add(ff.tBl_lenkrEinb);
+            App.collapsTBls.Add(ff.tBl_wrnEingPr);
+            App.collapsTBls.Add(ff.tBl_wrnAusgpr);
+            App.collapsTBls.Add(ff.tBl_relEinb);
+            App.collapsTBls.Add(ff.tBl_siEinb);
         }
 
         private void but_weiter_Click(object sender, RoutedEventArgs e)
@@ -103,7 +145,6 @@ namespace TroubleShooter
 
             aktAuftrag.prüfFolge = App._arbSchritteOptimal;
             App._situation.Add(aktAuftrag);
-            App.ohneFunktion.Clear();
             App.abhängigkeiten.Clear();
         }
 
@@ -137,80 +178,157 @@ namespace TroubleShooter
                     break;
             }
         }
-        private void initDialog()
+        private void InitDialog()
         {
-            DialogElement d1 = new DialogElement();
-            d1.dialogID = "1";
-            d1.dialogText = "Hallo, was kann ich für Sie tun?";
-            d1.antwortenIDs.Add("2");
-            d1.antwortenIDs.Add("3");
-            d1.antwortenIDs.Add("4");
-            d1.antwortenIDs.Add("5");
+            if (App.nav.Last() == "profil")
+            {
+                DialogElement d1 = new DialogElement();
+                d1.dialogID = "1";
+                d1.dialogText = "Hallo, was kann ich für Sie tun?";
+                d1.antwortenIDs.Add("2");
+                d1.antwortenIDs.Add("3");
+                d1.antwortenIDs.Add("4");
+                d1.antwortenIDs.Add("5");
 
-            DialogElement d2 = new DialogElement();
-            d2.dialogID = "2";
-            d2.dialogText = "Hallo. Ich habe gerade meinen letzten Auftrag fertig. Haben Sie noch etwas anderes für mich?";
-            d2.antwortenIDs.Add("8");
+                DialogElement d2 = new DialogElement();
+                d2.dialogID = "2";
+                d2.dialogText = "Hallo. Ich habe gerade erst meine Schicht begonnen. Haben Sie einen Auftrag für mich?";
+                d2.antwortenIDs.Add("8");
 
-            DialogElement d3 = new DialogElement();
-            d3.dialogID = "3";
-            d3.dialogText = "Hallo. Ich habe gerade erst meine Schicht begonnen. Haben Sie einen Auftrag für mich?";
-            d3.antwortenIDs.Add("8");
+                DialogElement d3 = new DialogElement();
+                d3.dialogID = "3";
+                d3.dialogText = "Hallo. Haben Sie einen Auftrag für mich?";
+                d3.antwortenIDs.Add("8");
 
-            DialogElement d4 = new DialogElement();
-            d4.dialogID = "4";
-            d4.dialogText = "Ich bin mit meiner Schicht fertig und habe Feierabend.";
-            d4.antwortenIDs.Add("6");
+                DialogElement d4 = new DialogElement();
+                d4.dialogID = "4";
+                d4.dialogText = "Ich bin mit meiner Schicht fertig und habe Feierabend.";
+                d4.antwortenIDs.Add("6");
 
-            DialogElement d5 = new DialogElement();
-            d5.dialogID = "5";
-            d5.dialogText = "Ich habe keine Lust mehr!";
-            d5.antwortenIDs.Add("7");
+                DialogElement d5 = new DialogElement();
+                d5.dialogID = "5";
+                d5.dialogText = "Ich habe keine Lust mehr!";
+                d5.antwortenIDs.Add("7");
 
-            DialogElement d6 = new DialogElement();
-            d6.dialogID = "6";
-            d6.dialogText = "Ok. Wenn sie wieder da sind, kommen sie zu mir. Ich habe da was für Sie";
-            d6.antwortenIDs.Add("11");
+                DialogElement d6 = new DialogElement();
+                d6.dialogID = "6";
+                d6.dialogText = "Ok. Wenn sie morgen wieder da sind, kommen sie zu mir. Ich habe da was für Sie";
+                d6.antwortenIDs.Add("11");
 
-            DialogElement d7 = new DialogElement();
-            d7.dialogID = "7";
-            d7.dialogText = "Oh, das tut mir aber sehr leid. Ich habe natürlich Verständniss! Bye Bye";
-            d7.antwortenIDs.Add("11");
+                DialogElement d7 = new DialogElement();
+                d7.dialogID = "7";
+                d7.dialogText = "Oh, das tut mir aber sehr leid. Ich habe natürlich sowas von Verständniss! Bye Bye";
+                d7.antwortenIDs.Add("11");
 
-            DialogElement d8 = new DialogElement();
-            d8.dialogID = "8";
-            d8.dialogText = "Ja, Ich habe da was, hier. Lesen Sie den Auftrag durch und begeben sie sich zum Fahrzeug. Es wurde schon in die Werkstatt gefahren.";
-            d8.antwortenIDs.Add("9");
-            d8.antwortenIDs.Add("10");
+                DialogElement d8 = new DialogElement();
+                d8.dialogID = "8";
+                d8.dialogText = "Ja, Ich habe da was, hier. Lesen Sie den Auftrag durch und begeben sie sich zum Fahrzeug. Es wurde schon in die Werkstatt gefahren.";
+                d8.antwortenIDs.Add("9");
+                d8.antwortenIDs.Add("10");
 
-            DialogElement d9 = new DialogElement();
-            d9.dialogID = "9";
-            d9.dialogText = "Ok. Ich mach mich sofort an die Arbeit.";
+                DialogElement d9 = new DialogElement();
+                d9.dialogID = "9";
+                d9.dialogText = "Ok. Ich mach mich sofort an die Arbeit.";
 
-            DialogElement d10 = new DialogElement();
-            d10.dialogID = "10";
-            d10.dialogText = "Oh, es tut mir leid. Ich merke gerade, dass ich zur Pause muss.";
+                DialogElement d10 = new DialogElement();
+                d10.dialogID = "10";
+                d10.dialogText = "Oh, es tut mir leid. Ich merke gerade, dass ich zur Pause muss.";
 
-            DialogElement d11 = new DialogElement();
-            d11.dialogID = "11";
-            d11.dialogText = "OK";
+                DialogElement d11 = new DialogElement();
+                d11.dialogID = "11";
+                d11.dialogText = "OK";
 
-            alleDialoge.Add(d1);
-            alleDialoge.Add(d2);
-            alleDialoge.Add(d3);
-            alleDialoge.Add(d4);
-            alleDialoge.Add(d5);
-            alleDialoge.Add(d6);
-            alleDialoge.Add(d7);
-            alleDialoge.Add(d8);
-            alleDialoge.Add(d9);
-            alleDialoge.Add(d10);
-            alleDialoge.Add(d11);
+                alleDialoge.Add(d1);
+                alleDialoge.Add(d2);
+                alleDialoge.Add(d3);
+                alleDialoge.Add(d4);
+                alleDialoge.Add(d5);
+                alleDialoge.Add(d6);
+                alleDialoge.Add(d7);
+                alleDialoge.Add(d8);
+                alleDialoge.Add(d9);
+                alleDialoge.Add(d10);
+                alleDialoge.Add(d11);
 
-            currentDialog = "1";
+                currentDialog = "1";
+            }
+
+            if (App.nav.Last() == "werksatt")
+            {
+                DialogElement d1 = new DialogElement();
+                d1.dialogID = "1";
+                d1.dialogText = "Hallo, was kann ich für Sie tun?";
+                d1.antwortenIDs.Add("2");
+                d1.antwortenIDs.Add("3");
+                d1.antwortenIDs.Add("4");
+                d1.antwortenIDs.Add("5");
+
+                DialogElement d2 = new DialogElement();
+                d2.dialogID = "2";
+                d2.dialogText = "Hallo. Ich habe gerade das Fahrzeug repariert.";
+                d2.antwortenIDs.Add("8");
+
+                DialogElement d3 = new DialogElement();
+                d3.dialogID = "3";
+                d3.dialogText = "Hallo. Ich habe etwas vergessen. Ich komme später nochmal wieder.";
+
+                DialogElement d4 = new DialogElement();
+                d4.dialogID = "4";
+                d4.dialogText = "Ich bin mit meiner Schicht fertig und habe Feierabend.";
+                d4.antwortenIDs.Add("6");
+
+                DialogElement d5 = new DialogElement();
+                d5.dialogID = "5";
+                d5.dialogText = "Ich habe keine Lust mehr!";
+                d5.antwortenIDs.Add("7");
+
+                DialogElement d6 = new DialogElement();
+                d6.dialogID = "6";
+                d6.dialogText = "Ok. Wenn sie morgen wieder da sind, kommen sie zu mir. Ich habe da was für Sie";
+                d6.antwortenIDs.Add("11");
+
+                DialogElement d7 = new DialogElement();
+                d7.dialogID = "7";
+                d7.dialogText = "Oh, das tut mir aber sehr leid. Ich habe natürlich volles großes Verständniss! Bye Bye";
+                d7.antwortenIDs.Add("11");
+
+                DialogElement d8 = new DialogElement();
+                d8.dialogID = "8";
+                d8.dialogText = "OK. Schauen wir es uns mal an.";
+                d8.antwortenIDs.Add("9");
+                d8.antwortenIDs.Add("12");
+
+                DialogElement d9 = new DialogElement();
+                d9.dialogID = "9";
+                d9.dialogText = "Oh, es tut mir leid. Ich merke gerade, dass ich noch was vergessen habe.";
+
+                DialogElement d11 = new DialogElement();
+                d11.dialogID = "11";
+                d11.dialogText = "OK";
+
+                DialogElement d12 = new DialogElement();
+                d12.dialogID = "12";
+                d12.dialogText = "Hier der Auftag und mein Arbeitsbericht.";
+
+                alleDialoge.Add(d1);
+                alleDialoge.Add(d2);
+                alleDialoge.Add(d3);
+                alleDialoge.Add(d4);
+                alleDialoge.Add(d5);
+                alleDialoge.Add(d6);
+                alleDialoge.Add(d7);
+                alleDialoge.Add(d8);
+                alleDialoge.Add(d9);
+                //alleDialoge.Add(d10);
+                alleDialoge.Add(d11);
+                alleDialoge.Add(d12);
+
+                currentDialog = "1";
+            }
+
         }
 
-        private void getDialog(string dialogID)
+        private void GetDialog(string dialogID)
         {
             var dialog = (from node in alleDialoge
                           where node.dialogID == dialogID
@@ -220,8 +338,8 @@ namespace TroubleShooter
             foreach (String id in dialog[0].antwortenIDs)
             {
                 var res = (from node in alleDialoge
-                            where node.dialogID == id
-                            select node).ToList();
+                           where node.dialogID == id
+                           select node).ToList();
                 dialogHelp.Add(res[0]);
             }
 
@@ -243,23 +361,50 @@ namespace TroubleShooter
                 }
 
                 if (tempDialog.dialogID == "10")
-                {
                     this.Close();
-                }
+
                 if (tempDialog.dialogID == "11")
-                {
                     this.Close();
+
+                if (tempDialog.dialogID == "12")
+                {
+                    string protokoll = "";
+                    string ASOpt = "";
+                    List<string> prot = new List<string>();
+                    List<string> optArbSchr = new List<string>();
+
+                    foreach (var item in App.prot)
+                    {
+                        protokoll += (item.prüfschritt + "\n");
+                        prot.Add(item.prüfschritt);
+                    }
+                    foreach (var item in App._arbSchritteOptimal)
+                    {
+                        ASOpt += (item.prüfschritt + "\n");
+                        optArbSchr.Add(item.prüfschritt);
+                    }
+
+                    MessageBox.Show("Vorgehen des Spielers: " + "\n" + protokoll + "\n\n" + "Optimales Vorgehen: " + "\n" + ASOpt);
+
+                    var objs = (from a in prot from b in optArbSchr where a.CompareTo(b) == 0 select new { a, b }).Distinct();
+
+                    string ausgabe = "";
+                    foreach (var obj in objs)
+                    {
+                        ausgabe += (obj.a + " = " + obj.b + "\n");
+                    }
+                    MessageBox.Show(ausgabe);
                 }
+
                 else
                 {
                     if (tempDialog.antwortenIDs.Count == 0) return;
                     else
                     {
                         currentDialog = tempDialog.antwortenIDs[0];
-                        getDialog(currentDialog);
+                        GetDialog(currentDialog);
                     }
                 }
-
             }
         }
     }

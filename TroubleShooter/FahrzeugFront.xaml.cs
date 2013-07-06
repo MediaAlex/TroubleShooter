@@ -23,6 +23,27 @@ namespace TroubleShooter
             InitializeComponent();
         }
 
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            foreach (string a in App.collapsImgs)
+            {
+                try
+                {
+                    Image img = gr_oberfl.FindName(a) as Image;
+                    img.Visibility = Visibility.Collapsed;
+
+                    if (img.Name == "img_blLiDran")
+                        img_blLiRaus.Visibility = Visibility.Visible;
+                    if (img.Name == "img_blReDran")
+                        img_blReRaus.Visibility = Visibility.Visible;
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
+            }
+        }
+
         private void stPan_menue_MouseEnter(object sender, MouseEventArgs e)
         {
             stPan_menue.Visibility = Visibility.Visible;
@@ -45,6 +66,8 @@ namespace TroubleShooter
         {
             App.prot.Add(new Protokoll { prüfschritt = App.alleAS[28].prüfschritt, prüfschrittID = App.alleAS[28].prüfschrittID });
             img_blLiDran.Visibility = Visibility.Collapsed;
+            App.collapsImgs.Add(img_blLiDran.Name);
+
             rec_blLiDrMenü.Visibility = Visibility.Collapsed;
             img_blLiRaus.Visibility = Visibility.Visible;
             rec_blLiRaMenü.Visibility = Visibility.Visible;
@@ -53,11 +76,18 @@ namespace TroubleShooter
         private void tBl_blLiGlLaOK_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             App.prot.Add(new Protokoll { prüfschritt = App.alleAS[33].prüfschritt, prüfschrittID = App.alleAS[33].prüfschrittID });
+            if (App.ohneFunktion[0].def == "blinkglühlLi")
+                MessageBox.Show("Der Glühdraht scheint durchgeschmort zu sein.");
+            else
+                MessageBox.Show("Die Glühlampe scheint in Ordnung zu sein.");
         }
 
         private void tBl_blLiSpPr_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-
+            if (App.ohneFunktion[0].gbLi == "blinkglühlLi")
+                MessageBox.Show("4V");
+            else
+                MessageBox.Show("12,4V");
         }
 
         private void tBl_blLiGlLaAusb_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
@@ -68,6 +98,8 @@ namespace TroubleShooter
         private void tBl_blLiGlLaEinb_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             App.prot.Add(new Protokoll { prüfschritt = App.alleAS[35].prüfschritt, prüfschrittID = App.alleAS[35].prüfschrittID });
+            if (App.ohneFunktion[0].def == "blinkglühlLi")
+                App.ohneFunktion.RemoveAt(0);
         }
 
         private void tBl_blLiBlEinb_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
@@ -77,6 +109,7 @@ namespace TroubleShooter
             rec_blLiRaMenü.Visibility = Visibility.Collapsed;
             img_blLiDran.Visibility = Visibility.Visible;
             rec_blLiDrMenü.Visibility = Visibility.Visible;
+            App.collapsImgs.Remove(img_blLiDran.Name);
         }
 
         private void tBl_blReAusb_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
@@ -86,16 +119,24 @@ namespace TroubleShooter
             rec_blReRaMenü.Visibility = Visibility.Visible;
             img_blReDran.Visibility = Visibility.Collapsed;
             rec_blReDrMenü.Visibility = Visibility.Collapsed;
+            App.collapsImgs.Add(img_blReDran.Name);
         }
 
         private void tBl_blReGlLaOK_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             App.prot.Add(new Protokoll { prüfschritt = App.alleAS[30].prüfschritt, prüfschrittID = App.alleAS[30].prüfschrittID });
+            if (App.ohneFunktion[0].def == "blinkglühlRe")
+                MessageBox.Show("Der Glühdraht scheint durchgeschmort zu sein.");
+            else
+                MessageBox.Show("Die Glühlampe scheint in Ordnung zu sein.");
         }
 
         private void tBl_blReSpPr_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-
+            if (App.ohneFunktion[0].gbLi == "blinkglühlRe")
+                MessageBox.Show("4V");
+            else
+                MessageBox.Show("12,4V");
         }
 
         private void tBl_blReGlLaAusb_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
@@ -106,6 +147,8 @@ namespace TroubleShooter
         private void tBl_blReGlLaEinb_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             App.prot.Add(new Protokoll { prüfschritt = App.alleAS[32].prüfschritt, prüfschrittID = App.alleAS[32].prüfschrittID });
+            if (App.ohneFunktion[0].def == "blinkglühlRe")
+                App.ohneFunktion.RemoveAt(0);
         }
 
         private void tBl_blReBlEinb_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
@@ -115,6 +158,7 @@ namespace TroubleShooter
             rec_blReRaMenü.Visibility = Visibility.Collapsed;
             img_blReDran.Visibility = Visibility.Visible;
             rec_blReDrMenü.Visibility = Visibility.Visible;
+            App.collapsImgs.Remove(img_blReDran.Name);
         }
         //Aktionen -------- Ende -----------
 

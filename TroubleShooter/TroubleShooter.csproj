@@ -158,6 +158,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Resource Include="Images\SicherungRelais.png" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -213,37 +214,59 @@
     <Resource Include="Spielstand_gr00134502.xml" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\Comic-Mann2spaltig-333x617.jpg" />
+    <Content Include="Images\Comic-Mann2spaltig-333x617.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\EL_Auto.png" />
+    <Content Include="Images\EL_Auto.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\ersatzteil-logo-gr.gif" />
+    <Content Include="Images\ersatzteil-logo-gr.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\info-01.jpg" />
+    <Content Include="Images\info-01.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\menschen-biz-mannlich-smile-clip-art_425060.jpg" />
+    <Content Include="Images\menschen-biz-mannlich-smile-clip-art_425060.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\EL_ Auftrag.png" />
+    <Content Include="Images\EL_ Auftrag.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\EL_NurCockpit.png" />
+    <Content Include="Images\EL_NurCockpit.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\Blinker_Scheibenwischerschalter.png" />
+    <Content Include="Images\Blinker_Scheibenwischerschalter.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\Lenkrad_Roh.png" />
+    <Content Include="Images\Lenkrad_Roh.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\ES_Kfz_Cockpit.png" />
+    <Content Include="Images\ES_Kfz_Cockpit.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\EL_NurCockpitRoh.png" />
+    <Content Include="Images\EL_NurCockpitRoh.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
