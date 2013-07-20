@@ -88,6 +88,12 @@ namespace TroubleShooter
         private void menschen_biz_mannlich_smile_clip_art_425060_jpg_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             App.nav.Add("werkstatt");
+            App.currentDialog = "1";
+
+            Servicetechniker st2 = new Servicetechniker();
+            st2.ShowDialog();
+            //st.InitializeComponent();
+            //st.Window_Loaded(st, e);
             this.Close();
         }
 	}

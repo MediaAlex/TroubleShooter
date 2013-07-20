@@ -96,7 +96,7 @@ namespace TroubleShooter
             App.prot.Add(new Protokoll { prüfschritt = App.alleAS[36].prüfschritt, prüfschrittID = App.alleAS[36].prüfschrittID });
             img_hupe.Visibility = Visibility.Collapsed;
             App.collapsImgs.Add(img_hupe.Name);
-            MessageBox.Show(App.collapsImgs.Count + "images ausbau");
+            //MessageBox.Show(App.collapsImgs.Count + "images ausbau");
 
             tBl_lenkrHupeEinb.Visibility = Visibility.Visible;
             App.collapsTBls.Remove(tBl_lenkrHupeEinb);
@@ -107,6 +107,7 @@ namespace TroubleShooter
         {
             App.prot.Add(new Protokoll { prüfschritt = App.alleAS[20].prüfschritt, prüfschrittID = App.alleAS[20].prüfschrittID });
             img_sichRel.Visibility = Visibility.Visible;
+            but_imgSichRelClose.Visibility = Visibility.Visible;
         }
 
         private void tBl_wblAn_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
@@ -130,7 +131,7 @@ namespace TroubleShooter
             img_lenkr.Visibility = Visibility.Collapsed;
             App.collapsImgs.Add(img_lenkr.Name);
             tBl_lenkrEinb.Visibility = Visibility.Visible;
-            MessageBox.Show(App.collapsImgs.Count + "images ausbau");
+            //MessageBox.Show(App.collapsImgs.Count + "images ausbau");
             tBl_blAusb.Visibility = Visibility.Visible;
             App.collapsTBls.Remove(tBl_lenkrEinb);
             App.collapsTBls.Remove(tBl_blAusb);
@@ -143,7 +144,7 @@ namespace TroubleShooter
             App.prot.Add(new Protokoll { prüfschritt = App.alleAS[37].prüfschritt, prüfschrittID = App.alleAS[37].prüfschrittID });
             img_hupe.Visibility = Visibility.Visible;
             App.collapsImgs.Remove(img_hupe.Name);
-            MessageBox.Show(App.collapsImgs.Count + "images Hup einbau");
+            //MessageBox.Show(App.collapsImgs.Count + "images Hup einbau");
 
             tBl_lenkrHupeEinb.Visibility = Visibility.Collapsed;
             tBl_blAusb.Visibility = Visibility.Collapsed;
@@ -159,7 +160,7 @@ namespace TroubleShooter
             TextBlock objekt = (sender as TextBlock);
             string objName = objekt.Name;
 
-            foreach (AbhängigkeitBlinker x in App.ohneFunktion)
+            foreach (Abhängigkeit x in App.ohneFunktion)
             {
                 if (x.gbLi == objName)
                 {
@@ -191,20 +192,18 @@ namespace TroubleShooter
 
         private void blinkglühlRe_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            bool oF = false;
+            bool ohneFunkt = false;
             TextBlock objekt = (sender as TextBlock);
             string objName = objekt.Name;
 
             foreach (var x in App.ohneFunktion)
-            {
                 if (x.gbRe == objName)
                 {
-                    oF = true;
+                    ohneFunkt = true;
                     break;
                 }
-            }
 
-            if (!oF)
+            if (!ohneFunkt)
             {
                 if (blAn)
                 {
@@ -264,7 +263,7 @@ namespace TroubleShooter
         {
             App.prot.Add(new Protokoll { prüfschritt = App.alleAS[40].prüfschritt, prüfschrittID = App.alleAS[40].prüfschrittID });
             img_lenkr.Visibility = Visibility.Visible;
-            MessageBox.Show(App.collapsImgs.Count + "images einbau");
+            //MessageBox.Show(App.collapsImgs.Count + "images einbau");
             tBl_lenkrEinb.Visibility = Visibility.Collapsed;
             try
             {
@@ -278,15 +277,17 @@ namespace TroubleShooter
             }
             App.collapsTBls.Add(tBl_lenkrEinb);
             App.visTBls.Remove(tBl_lenkrEinb);
-            MessageBox.Show(App.collapsImgs.Count + "images einbau");
+            //MessageBox.Show(App.collapsImgs.Count + "images einbau");
         }
 
         private void tBl_blEinb_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             App.prot.Add(new Protokoll { prüfschritt = App.alleAS[44].prüfschritt, prüfschrittID = App.alleAS[44].prüfschrittID });
             img_blSchW.Visibility = Visibility.Visible;
+
             if (App.ohneFunktion[0].def == "blinkSch")
                 App.ohneFunktion.RemoveAt(0);
+
             App.collapsImgs.Remove(img_blSchW.Name);
         }
 
@@ -372,8 +373,9 @@ namespace TroubleShooter
             stPan_menuLicht.Visibility = Visibility.Visible;
         }
 
-        private void img_sichRel_MouseLeave(object sender, MouseEventArgs e)
+        private void but_imgSichRelClose_Click(object sender, RoutedEventArgs e)
         {
+            but_imgSichRelClose.Visibility = Visibility.Collapsed;
             img_sichRel.Visibility = Visibility.Collapsed;
         }
 
@@ -477,19 +479,9 @@ namespace TroubleShooter
             stPan_menuSich.Visibility = Visibility.Visible;
         }
 
-        private void rec_sichBl_MouseLeave(object sender, MouseEventArgs e)
-        {
-            stPan_menuSich.Visibility = Visibility.Collapsed;
-        }
-
         private void rec_relBl_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             stPan_menuRel.Visibility = Visibility.Visible;
-        }
-
-        private void rec_relBl_MouseLeave(object sender, MouseEventArgs e)
-        {
-            stPan_menuSich.Visibility = Visibility.Collapsed;
         }
 
         //Aktionsmenüs öffnen ---- Ende ------

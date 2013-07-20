@@ -5,7 +5,7 @@ using System.Text;
 
 namespace TroubleShooter
 {
-    public class AbhängigkeitBlinker
+    public class Abhängigkeit
     {
         public string fehl { set; get; }
         public string def { set; get; }

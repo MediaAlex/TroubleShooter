@@ -20,16 +20,20 @@ namespace TroubleShooter
         public Servicetechniker()
         {
             this.InitializeComponent();
-            InitDialog();
         }
 
-        List<DialogElement> alleDialoge = new List<DialogElement>();
-        String currentDialog = "";
+        List<DialogElement> alleDialoge;
 
-        List<string> abhTeile = new List<string>();
+        List<string> abhTeile;
 
-        private void Window_Loaded(object sender, RoutedEventArgs e)
+        public void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            if (App.nav.Last() == "profil")
+            {
+                SetzeAbhängigkeiten();
+                _Auftrag();
+            } 
+            
             if (App.collapsTBls == null)
             {
                 App.collapsTBls = new List<TextBlock>();
@@ -41,27 +45,33 @@ namespace TroubleShooter
 
             if (App.visTBls == null)
                 App.visTBls = new List<TextBlock>();
-
-            SetzeAbhängigkeiten();
-            _Auftrag();
-            GetDialog(currentDialog);
+            
+            if (alleDialoge == null)
+                alleDialoge = new List<DialogElement>();
+            else
+            {
+                alleDialoge = null;
+                alleDialoge = new List<DialogElement>();
+            }
+            InitDialog();
+            GetDialog(App.currentDialog);
         }
 
         private void SetzeAbhängigkeiten()
         {
-            App.abhängigkeiten.Add(new AbhängigkeitBlinker
+            App.abhängigkeiten.Add(new Abhängigkeit
             {
                 fehl = "Blinker Rechts",
                 gbRe = "blinkglühlRe",
                 def = "blinkglühlRe"
             });
-            App.abhängigkeiten.Add(new AbhängigkeitBlinker
+            App.abhängigkeiten.Add(new Abhängigkeit
             {
                 fehl = "Blinker Links",
                 gbLi = "blinkglühlLi",
                 def = "blinkglühlLi"
             });
-            App.abhängigkeiten.Add(new AbhängigkeitBlinker
+            App.abhängigkeiten.Add(new Abhängigkeit
             {
                 fehl = "Blinker",
                 gbLi = "blinkglühlLi",
@@ -72,7 +82,7 @@ namespace TroubleShooter
                 si = "sichBlink",
                 def = "bat"
             });
-            App.abhängigkeiten.Add(new AbhängigkeitBlinker
+            App.abhängigkeiten.Add(new Abhängigkeit
             {
                 fehl = "Blinker",
                 gbRe = "blinkglühlRe",
@@ -81,7 +91,7 @@ namespace TroubleShooter
                 schal = "blinkSch",
                 def = "sichBlink"
             });
-            App.abhängigkeiten.Add(new AbhängigkeitBlinker
+            App.abhängigkeiten.Add(new Abhängigkeit
             {
                 fehl = "Blinker",
                 gbRe = "blinkglühlRe",
@@ -89,7 +99,7 @@ namespace TroubleShooter
                 re = "blinkRel",
                 def = "blinkSch"
             });
-            App.abhängigkeiten.Add(new AbhängigkeitBlinker
+            App.abhängigkeiten.Add(new Abhängigkeit
             {
                 fehl = "Blinker",
                 gbRe = "blinkglühlRe",
@@ -101,6 +111,7 @@ namespace TroubleShooter
         private void FülleColTBls()
         {
             FahrzeugFahrerraum ff = new FahrzeugFahrerraum();
+            FahrzeugFront ffr = new FahrzeugFront();
             App.collapsTBls.Add(ff.tBl_blAusb);
             App.collapsTBls.Add(ff.tBl_eingPruf);
             App.collapsTBls.Add(ff.tBl_ausgPruf);
@@ -109,6 +120,8 @@ namespace TroubleShooter
             App.collapsTBls.Add(ff.tBl_wrnAusgpr);
             App.collapsTBls.Add(ff.tBl_relEinb);
             App.collapsTBls.Add(ff.tBl_siEinb);
+            App.collapsTBls.Add(ffr.tBl_blReGlLaEinb);
+            App.collapsTBls.Add(ffr.tBl_blLiGlLaEinb);
         }
 
         private void but_weiter_Click(object sender, RoutedEventArgs e)
@@ -119,6 +132,7 @@ namespace TroubleShooter
 
         private void _Auftrag()
         {
+            abhTeile = new List<string>();
             Random rnd = new Random();
 
             Autoteile alleAutoteile = new Autoteile();
@@ -150,7 +164,7 @@ namespace TroubleShooter
 
         private void _ArbeitsschritteFestlegen(string defekt)
         {
-            ArbSchrBlinksysOptimal alleSchritte = new ArbSchrBlinksysOptimal();
+            ArbeitsschriteOptimal alleSchritte = new ArbeitsschriteOptimal();
             switch (defekt)
             {
                 case "bat":
@@ -250,10 +264,10 @@ namespace TroubleShooter
                 alleDialoge.Add(d10);
                 alleDialoge.Add(d11);
 
-                currentDialog = "1";
+                App.currentDialog = "1";
             }
 
-            if (App.nav.Last() == "werksatt")
+            if (App.nav.Last() == "werkstatt")
             {
                 DialogElement d1 = new DialogElement();
                 d1.dialogID = "1";
@@ -309,6 +323,25 @@ namespace TroubleShooter
                 DialogElement d12 = new DialogElement();
                 d12.dialogID = "12";
                 d12.dialogText = "Hier der Auftag und mein Arbeitsbericht.";
+                d12.antwortenIDs.Add("13");
+                d12.antwortenIDs.Add("14");
+                d12.antwortenIDs.Add("15");
+
+                DialogElement d13 = new DialogElement();
+                d13.dialogID = "13";
+                d13.dialogText = "Du hast deine Arbeit sehr gut gemacht.";
+                d13.antwortenIDs.Add("11");
+
+                DialogElement d14 = new DialogElement();
+                d14.dialogID = "14";
+                d14.dialogText = "Du hast deine Arbeit sehr gut gemacht. Du hast weniger Arbeitsschritte gebraucht, als erwartet.";
+                d14.antwortenIDs.Add("11");
+
+                DialogElement d15 = new DialogElement();
+                d15.dialogID = "15";
+                d15.dialogText = "Du hast leider zu viel Arbeitsschritte gebraucht.";
+                d15.antwortenIDs.Add("11");
+
 
                 alleDialoge.Add(d1);
                 alleDialoge.Add(d2);
@@ -322,10 +355,12 @@ namespace TroubleShooter
                 //alleDialoge.Add(d10);
                 alleDialoge.Add(d11);
                 alleDialoge.Add(d12);
+                alleDialoge.Add(d13);
+                alleDialoge.Add(d14);
+                alleDialoge.Add(d15);
 
-                currentDialog = "1";
+                App.currentDialog = "1";
             }
-
         }
 
         private void GetDialog(string dialogID)
@@ -358,6 +393,7 @@ namespace TroubleShooter
                 {
                     SeiteFahrzeug sF = new SeiteFahrzeug();
                     sF.ShowDialog();
+                    this.Close();
                 }
 
                 if (tempDialog.dialogID == "10")
@@ -366,43 +402,63 @@ namespace TroubleShooter
                 if (tempDialog.dialogID == "11")
                     this.Close();
 
-                if (tempDialog.dialogID == "12")
-                {
-                    string protokoll = "";
-                    string ASOpt = "";
-                    List<string> prot = new List<string>();
-                    List<string> optArbSchr = new List<string>();
-
-                    foreach (var item in App.prot)
-                    {
-                        protokoll += (item.prüfschritt + "\n");
-                        prot.Add(item.prüfschritt);
-                    }
-                    foreach (var item in App._arbSchritteOptimal)
-                    {
-                        ASOpt += (item.prüfschritt + "\n");
-                        optArbSchr.Add(item.prüfschritt);
-                    }
-
-                    MessageBox.Show("Vorgehen des Spielers: " + "\n" + protokoll + "\n\n" + "Optimales Vorgehen: " + "\n" + ASOpt);
-
-                    var objs = (from a in prot from b in optArbSchr where a.CompareTo(b) == 0 select new { a, b }).Distinct();
-
-                    string ausgabe = "";
-                    foreach (var obj in objs)
-                    {
-                        ausgabe += (obj.a + " = " + obj.b + "\n");
-                    }
-                    MessageBox.Show(ausgabe);
-                }
-
                 else
                 {
+                    if (tempDialog.dialogID == "12")
+                    {
+                        string protokoll = "";
+                        string ASOpt = "";
+                        List<string> prot = new List<string>();
+                        List<string> optArbSchr = new List<string>();
+
+                        foreach (var item in App.prot)
+                        {
+                            protokoll += (item.prüfschritt + "\n");
+                            prot.Add(item.prüfschritt);
+                        }
+                        foreach (var item in App._arbSchritteOptimal)
+                        {
+                            ASOpt += (item.prüfschritt + "\n");
+                            optArbSchr.Add(item.prüfschritt);
+                        }
+
+                        MessageBox.Show("Vorgehen des Spielers: " + "\n" + protokoll + "\n\n" + "Optimales Vorgehen: " + "\n" + ASOpt);
+
+                        var objs = (from a in prot from b in optArbSchr where a.CompareTo(b) == 0 select new { a, b }).Distinct();
+
+                        string ausgabe = "";
+                        int gleicheAS = 0;
+                        foreach (var obj in objs)
+                        {
+                            gleicheAS ++;
+                            ausgabe += (obj.a + " = " + obj.b + "\n");
+                        }
+                        MessageBox.Show(ausgabe);
+
+                        if (App.prot.Count == App._arbSchritteOptimal.Count)
+                        {
+                            App.currentDialog = tempDialog.antwortenIDs[0];
+                            GetDialog(App.currentDialog);
+                        }
+
+                        if (App.prot.Count < App._arbSchritteOptimal.Count)
+                        {
+                            App.currentDialog = tempDialog.antwortenIDs[1];
+                            GetDialog(App.currentDialog);
+                        }
+
+                        if (App.prot.Count > App._arbSchritteOptimal.Count)
+                        {
+                            App.currentDialog = tempDialog.antwortenIDs[2];
+                            GetDialog(App.currentDialog);
+                        }
+                    }
+
                     if (tempDialog.antwortenIDs.Count == 0) return;
                     else
                     {
-                        currentDialog = tempDialog.antwortenIDs[0];
-                        GetDialog(currentDialog);
+                        App.currentDialog = tempDialog.antwortenIDs[0];
+                        GetDialog(App.currentDialog);
                     }
                 }
             }

@@ -42,6 +42,17 @@ namespace TroubleShooter
                     throw;
                 }
             }
+            foreach (TextBlock tbl in App.collapsTBls)
+            {
+                string a = tbl.GetValue(TextBlock.NameProperty).ToString();
+                (gr_oberfl.FindName(a) as TextBlock).Visibility = Visibility.Collapsed;
+            }
+
+            foreach (TextBlock tbl in App.visTBls)
+            {
+                string a = tbl.GetValue(TextBlock.NameProperty).ToString();
+                (gr_oberfl.FindName(a) as TextBlock).Visibility = Visibility.Visible;
+            }
         }
 
         private void stPan_menue_MouseEnter(object sender, MouseEventArgs e)
@@ -93,6 +104,12 @@ namespace TroubleShooter
         private void tBl_blLiGlLaAusb_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             App.prot.Add(new Protokoll { prüfschritt = App.alleAS[34].prüfschritt, prüfschrittID = App.alleAS[34].prüfschrittID });
+            tBl_blReGlLaEinb.Visibility = Visibility.Visible;
+            tBl_blReGlLaAusb.Visibility = Visibility.Collapsed;
+
+            App.collapsTBls.Add(tBl_blReGlLaAusb);
+            App.collapsTBls.Remove(tBl_blReGlLaEinb);
+            App.visTBls.Add(tBl_blReGlLaEinb);
         }
 
         private void tBl_blLiGlLaEinb_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
@@ -100,6 +117,13 @@ namespace TroubleShooter
             App.prot.Add(new Protokoll { prüfschritt = App.alleAS[35].prüfschritt, prüfschrittID = App.alleAS[35].prüfschrittID });
             if (App.ohneFunktion[0].def == "blinkglühlLi")
                 App.ohneFunktion.RemoveAt(0);
+            tBl_blReGlLaEinb.Visibility = Visibility.Collapsed;
+            tBl_blReGlLaAusb.Visibility = Visibility.Visible;
+
+            App.collapsTBls.Add(tBl_blReGlLaEinb);
+            App.collapsTBls.Remove(tBl_blReGlLaAusb);
+            App.visTBls.Remove(tBl_blReGlLaEinb);
+
         }
 
         private void tBl_blLiBlEinb_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
@@ -142,6 +166,12 @@ namespace TroubleShooter
         private void tBl_blReGlLaAusb_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             App.prot.Add(new Protokoll { prüfschritt = App.alleAS[31].prüfschritt, prüfschrittID = App.alleAS[31].prüfschrittID });
+            tBl_blReGlLaEinb.Visibility = Visibility.Visible;
+            tBl_blReGlLaAusb.Visibility = Visibility.Collapsed;
+
+            App.collapsTBls.Add(tBl_blReGlLaAusb);
+            App.collapsTBls.Remove(tBl_blReGlLaEinb);
+            App.visTBls.Add(tBl_blReGlLaEinb);
         }
 
         private void tBl_blReGlLaEinb_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
@@ -149,6 +179,12 @@ namespace TroubleShooter
             App.prot.Add(new Protokoll { prüfschritt = App.alleAS[32].prüfschritt, prüfschrittID = App.alleAS[32].prüfschrittID });
             if (App.ohneFunktion[0].def == "blinkglühlRe")
                 App.ohneFunktion.RemoveAt(0);
+            tBl_blReGlLaEinb.Visibility = Visibility.Collapsed;
+            tBl_blReGlLaAusb.Visibility = Visibility.Visible;
+
+            App.collapsTBls.Add(tBl_blReGlLaEinb);
+            App.collapsTBls.Remove(tBl_blReGlLaAusb);
+            App.visTBls.Remove(tBl_blReGlLaEinb);
         }
 
         private void tBl_blReBlEinb_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)

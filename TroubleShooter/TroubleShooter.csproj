@@ -58,9 +58,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Classen\AbhängigkeitBlinker.cs" />
+    <Compile Include="Classen\Abhängigkeit.cs" />
     <Compile Include="Classen\Arbeitsschritte.cs" />
-    <Compile Include="Classen\ArbSchrBlinksysOptimal.cs" />
+    <Compile Include="Classen\ArbeitsschriteOptimal.cs" />
     <Compile Include="Classen\Autoteile.cs" />
     <Compile Include="Classen\DialogElement.cs" />
     <Compile Include="FahrzeugFahrerraum.xaml.cs">

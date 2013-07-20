@@ -50,10 +50,10 @@
                     MouseLeftButtonUp="tBl_blLiGlLaOK_MouseLeftButtonUp"/>
                 <TextBlock Text="Spannung prüfen" Margin="5,0,5,0" FontWeight="Bold" 
                     MouseLeftButtonUp="tBl_blLiSpPr_MouseLeftButtonUp"/>
-                <TextBlock Text="Glühlampe ausbauen" Margin="5,5,5,0" FontWeight="Bold"
+                <TextBlock Text="Glühlampe ausbauen" Margin="5,5,5,0" FontWeight="Bold" Name="tBl_blLiGlLaAusb"
                        MouseLeftButtonUp="tBl_blLiGlLaAusb_MouseLeftButtonUp"/>
-                <TextBlock Text="Glühlampe einbauen" Margin="5,5,5,0" FontWeight="Bold" 
-                       MouseLeftButtonUp="tBl_blLiGlLaEinb_MouseLeftButtonUp"/>
+                <TextBlock Text="Glühlampe einbauen" Margin="5,5,5,0" FontWeight="Bold" Name="tBl_blLiGlLaEinb"
+                       MouseLeftButtonUp="tBl_blLiGlLaEinb_MouseLeftButtonUp" Visibility="Collapsed"/>
                 <TextBlock Text="Blinker einbauen" Margin="5,5,5,0" FontWeight="Bold" 
                        MouseLeftButtonUp="tBl_blLiBlEinb_MouseLeftButtonUp"/>
             </StackPanel>
@@ -75,10 +75,10 @@
                        MouseLeftButtonUp="tBl_blReGlLaOK_MouseLeftButtonUp"/>
                 <TextBlock Text="Spannung prüfen" Margin="5,0,5,0" FontWeight="Bold" 
                        MouseLeftButtonUp="tBl_blReSpPr_MouseLeftButtonUp"/>
-                <TextBlock Text="Glühlampe ausbauen" Margin="5,5,5,0" FontWeight="Bold" 
+                <TextBlock Text="Glühlampe ausbauen" Margin="5,5,5,0" FontWeight="Bold" Name="tBl_blReGlLaAusb"
                        MouseLeftButtonUp="tBl_blReGlLaAusb_MouseLeftButtonUp"/>
-                <TextBlock Text="Glühlampe einbauen" Margin="5,5,5,0" FontWeight="Bold" 
-                       MouseLeftButtonUp="tBl_blReGlLaEinb_MouseLeftButtonUp"/>
+                <TextBlock Text="Glühlampe einbauen" Margin="5,5,5,0" FontWeight="Bold" Name="tBl_blReGlLaEinb"
+                       MouseLeftButtonUp="tBl_blReGlLaEinb_MouseLeftButtonUp" Visibility="Collapsed"/>
                 <TextBlock Text="Blinker einbauen" Margin="5,5,5,0" FontWeight="Bold" 
                        MouseLeftButtonUp="tBl_blReBlEinb_MouseLeftButtonUp"/>
             </StackPanel>

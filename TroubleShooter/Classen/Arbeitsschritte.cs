@@ -9,7 +9,6 @@ namespace TroubleShooter
     {
         public static List<IArbeitsschritte> schritte { get; set; }
         public static List<IArbeitsschritte> zuPrüfen()
-        //0,6,8,10,17,22,23,33,30,36,39,41,42,43,44,06,08,40,37
         {
             schritte = new List<IArbeitsschritte>();
             schritte.Add(new IArbeitsschritte { prüfschritt = "In Fahrerraum eingestiegen", prüfschrittID = "FahrrEinst" });//00

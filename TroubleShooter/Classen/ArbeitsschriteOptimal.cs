@@ -7,7 +7,7 @@ using System.Collections.ObjectModel;
 namespace TroubleShooter
 {
     
-    public class ArbSchrBlinksysOptimal
+    public class ArbeitsschriteOptimal
     {
         public List<IArbeitsschritte> _defBlSch()
         {//0,6,8,10,17,22,23,33,30,36,39,41,42,43,44,06,08,40,37

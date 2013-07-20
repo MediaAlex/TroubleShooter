@@ -67,15 +67,15 @@
             <!--Rects für Aktionsmenüs Klick ********** Ende **********-->
             
             <Image Source="/TroubleShooter;component/Images/SicherungRelais.png" Width="800" Margin="201,45,0,0" Height="600" VerticalAlignment="Top" 
-                   HorizontalAlignment="Left" Name="img_sichRel" MouseLeave="img_sichRel_MouseLeave" Visibility="Collapsed"/>
+                   HorizontalAlignment="Left" Name="img_sichRel" Visibility="Collapsed"/>
             <Rectangle Height="58" HorizontalAlignment="Left" Margin="591,216,0,0" Stroke="{x:Null}" VerticalAlignment="Top" Width="58" 
-                       Name="rec_relBl" MouseLeftButtonUp="rec_relBl_MouseLeftButtonUp" MouseLeave="rec_relBl_MouseLeave">
+                       Name="rec_relBl" MouseLeftButtonUp="rec_relBl_MouseLeftButtonUp">
                 <Rectangle.Fill>
                     <SolidColorBrush />
                 </Rectangle.Fill>
             </Rectangle>
             <Rectangle Height="51" HorizontalAlignment="Left" Margin="548,366,0,0" Stroke="{x:Null}" VerticalAlignment="Top" Width="16" 
-                       Name="rec_sichBl" MouseLeftButtonUp="rec_sichBl_MouseLeftButtonUp" MouseLeave="rec_sichBl_MouseLeave">
+                       Name="rec_sichBl" MouseLeftButtonUp="rec_sichBl_MouseLeftButtonUp">
                 <Rectangle.Fill>
                     <SolidColorBrush />
                 </Rectangle.Fill>
@@ -103,8 +103,8 @@
                             Visibility="Collapsed" MouseLeftButtonUp="tBl_lenkrEinb_MouseLeftButtonUp"/>
             </StackPanel>
 
-            <StackPanel Name="stPan_menuWarnBlinker" Margin="357,216,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="141" Visibility="Collapsed" 
-                        MouseLeave="visibCol_MouseLeave">
+            <StackPanel Name="stPan_menuWarnBlinker" Visibility="Collapsed" Margin="357,216,0,0" VerticalAlignment="Top" 
+                        HorizontalAlignment="Left" Width="141" MouseLeave="visibCol_MouseLeave">
                 <StackPanel.Background>
                     <SolidColorBrush Color="#FF2054A9" Opacity="0.85"/>
                 </StackPanel.Background>
@@ -205,7 +205,15 @@
             <Ellipse Height="85" HorizontalAlignment="Left" Margin="224,85,0,0" Name="el_blLicLi" Stroke="{x:Null}" VerticalAlignment="Top" Width="161" Fill="{x:Null}"></Ellipse>
             <Ellipse Height="85" HorizontalAlignment="Left" Margin="848,85,0,0" Name="el_blLicRe" Stroke="{x:Null}" VerticalAlignment="Top" Width="161" Fill="{x:Null}"></Ellipse>
             <Rectangle Height="134" HorizontalAlignment="Left" Margin="225,22,0,0" Name="rec_licht" Stroke="{x:Null}" VerticalAlignment="Top" Width="789" />
-            
+            <Button Content="X" Height="34" HorizontalAlignment="Left" Margin="952,45,0,0" Name="but_imgSichRelClose" VerticalAlignment="Top" Width="49" 
+                    Click="but_imgSichRelClose_Click" Visibility="Collapsed" >
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FFE83636" Offset="0" />
+                        <GradientStop Color="#FFA01515" Offset="1" />
+                    </LinearGradientBrush>
+                </Button.Background>
+            </Button>
         </Grid>
         
         <!-- Rechte Menüleiste-->
